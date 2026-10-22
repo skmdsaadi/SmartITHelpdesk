@@ -4,13 +4,13 @@ from fastapi import Depends, FastAPI, Header, HTTPException, Query, Request, Res
 from fastapi.responses import JSONResponse
 from sqlalchemy import delete, func, or_, select, text
 from sqlalchemy.exc import IntegrityError, SQLAlchemyError
-from . import config
+from . import classifier, config
 from .database import get_engine
 from .models import AuthSession, Comment, Ticket, TicketEvent, User, utcnow
 from .schemas import (
     Category, CommentInput, CommentOutput, DashboardOutput, EventOutput, LoginInput,
     Priority, RegisterInput, Status, TicketDetail, TicketInput, TicketOutput,
-    TicketPage, TicketUpdate, UserOutput,
+    TicketPage, TicketUpdate, UserOutput, TicketText, AIResult,
 )
 from .security import (
     AdminUser, CurrentUser, DB, dummy_hash, limit_auth, password_hasher,
@@ -27,8 +27,8 @@ def browser_request_guard(request: Request, x_helpdesk_request: Annotated[str | 
             raise HTTPException(403, "Cross-site requests are not allowed.")
 
 app = FastAPI(
-    title="Smart IT Helpdesk API", version="0.2.0",
-    description="Accounts and tickets. AI is planned for Phase 3. Write requests require "
+    title="Smart IT Helpdesk API", version="0.3.0",
+    description="Accounts, tickets and an English demonstration category classifier. Write requests require "
                 "X-Helpdesk-Request: 1. Login sets an HttpOnly session cookie.",
     dependencies=[Depends(browser_request_guard)],
 )
@@ -51,16 +51,17 @@ def health(response: Response):
     ready = False
     try:
         with get_engine().connect() as connection:
-            ready = connection.execute(text("SELECT version_num FROM alembic_version")).scalar() == "0001"
+            ready = connection.execute(text("SELECT version_num FROM alembic_version")).scalar() == "0002"
     except (SQLAlchemyError, RuntimeError, ValueError):
         pass
     if not ready:
         response.status_code = 503
     return {
         "status": "ok" if ready else "degraded", "service": "smart-it-helpdesk",
-        "version": "0.2.0", "timestamp": utcnow(),
+        "version": "0.3.0", "timestamp": utcnow(),
         "components": {"api": "ready", "database": "ready" if ready else "needs_setup",
-                       "authentication": "ready", "tickets": "ready", "ai": "not_implemented"},
+                       "authentication": "ready", "tickets": "ready",
+                       "ai": "ready_demo" if classifier.get_model() else "unavailable"},
         "registration_enabled": config.ALLOW_REGISTRATION,
     }
 
@@ -162,7 +163,9 @@ def list_tickets(
 
 @app.post("/api/v1/tickets", response_model=TicketOutput, status_code=201, tags=["Tickets"])
 def create_ticket(data: TicketInput, user: CurrentUser, db: DB):
-    ticket = Ticket(**data.model_dump(), created_by=user.id, status="Open")
+    ai = classifier.classify(data.title, data.description)
+    ai.update(selected_category=data.category, recorded_at=utcnow().isoformat())
+    ticket = Ticket(**data.model_dump(), created_by=user.id, status="Open", ai_assessment=ai)
     db.add(ticket)
     db.flush()
     db.add(TicketEvent(ticket_id=ticket.id, user_id=user.id, message="Ticket opened."))
@@ -207,3 +210,17 @@ def add_comment(ticket_id: int, data: CommentInput, user: CurrentUser, db: DB):
     db.commit()
     db.refresh(comment)
     return comment
+
+
+@app.post("/api/v1/ai/classify", response_model=AIResult, tags=["AI"])
+def classify_draft(data: TicketText, user: CurrentUser):
+    # No ticket IDs or other users' text are involved in a draft prediction.
+    return classifier.classify(data.title, data.description)
+
+
+@app.get("/api/v1/ai/model", tags=["AI"])
+def model_evaluation(user: AdminUser):
+    model = classifier.get_model()
+    if model is None:
+        raise HTTPException(503, "AI model unavailable. Check backend packages and bundled dataset, then restart.")
+    return model.report

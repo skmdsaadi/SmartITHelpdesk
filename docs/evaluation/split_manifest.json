@@ -1,0 +1,1628 @@
+{
+  "train": [
+    {
+      "id": "email_outbox_1",
+      "group": "email_outbox",
+      "category": "Email"
+    },
+    {
+      "id": "email_outbox_2",
+      "group": "email_outbox",
+      "category": "Email"
+    },
+    {
+      "id": "email_outbox_3",
+      "group": "email_outbox",
+      "category": "Email"
+    },
+    {
+      "id": "email_inbox_sync_1",
+      "group": "email_inbox_sync",
+      "category": "Email"
+    },
+    {
+      "id": "email_inbox_sync_2",
+      "group": "email_inbox_sync",
+      "category": "Email"
+    },
+    {
+      "id": "email_inbox_sync_3",
+      "group": "email_inbox_sync",
+      "category": "Email"
+    },
+    {
+      "id": "email_attachment_size_1",
+      "group": "email_attachment_size",
+      "category": "Email"
+    },
+    {
+      "id": "email_attachment_size_2",
+      "group": "email_attachment_size",
+      "category": "Email"
+    },
+    {
+      "id": "email_attachment_size_3",
+      "group": "email_attachment_size",
+      "category": "Email"
+    },
+    {
+      "id": "email_junk_folder_1",
+      "group": "email_junk_folder",
+      "category": "Email"
+    },
+    {
+      "id": "email_junk_folder_2",
+      "group": "email_junk_folder",
+      "category": "Email"
+    },
+    {
+      "id": "email_junk_folder_3",
+      "group": "email_junk_folder",
+      "category": "Email"
+    },
+    {
+      "id": "email_mailbox_quota_1",
+      "group": "email_mailbox_quota",
+      "category": "Email"
+    },
+    {
+      "id": "email_mailbox_quota_2",
+      "group": "email_mailbox_quota",
+      "category": "Email"
+    },
+    {
+      "id": "email_mailbox_quota_3",
+      "group": "email_mailbox_quota",
+      "category": "Email"
+    },
+    {
+      "id": "email_autoreply_1",
+      "group": "email_autoreply",
+      "category": "Email"
+    },
+    {
+      "id": "email_autoreply_2",
+      "group": "email_autoreply",
+      "category": "Email"
+    },
+    {
+      "id": "email_autoreply_3",
+      "group": "email_autoreply",
+      "category": "Email"
+    },
+    {
+      "id": "email_mail_rules_1",
+      "group": "email_mail_rules",
+      "category": "Email"
+    },
+    {
+      "id": "email_mail_rules_2",
+      "group": "email_mail_rules",
+      "category": "Email"
+    },
+    {
+      "id": "email_mail_rules_3",
+      "group": "email_mail_rules",
+      "category": "Email"
+    },
+    {
+      "id": "email_calendar_invite_1",
+      "group": "email_calendar_invite",
+      "category": "Email"
+    },
+    {
+      "id": "email_calendar_invite_2",
+      "group": "email_calendar_invite",
+      "category": "Email"
+    },
+    {
+      "id": "email_calendar_invite_3",
+      "group": "email_calendar_invite",
+      "category": "Email"
+    },
+    {
+      "id": "email_mail_search_1",
+      "group": "email_mail_search",
+      "category": "Email"
+    },
+    {
+      "id": "email_mail_search_2",
+      "group": "email_mail_search",
+      "category": "Email"
+    },
+    {
+      "id": "email_mail_search_3",
+      "group": "email_mail_search",
+      "category": "Email"
+    },
+    {
+      "id": "email_contact_list_1",
+      "group": "email_contact_list",
+      "category": "Email"
+    },
+    {
+      "id": "email_contact_list_2",
+      "group": "email_contact_list",
+      "category": "Email"
+    },
+    {
+      "id": "email_contact_list_3",
+      "group": "email_contact_list",
+      "category": "Email"
+    },
+    {
+      "id": "email_forwarding_1",
+      "group": "email_forwarding",
+      "category": "Email"
+    },
+    {
+      "id": "email_forwarding_2",
+      "group": "email_forwarding",
+      "category": "Email"
+    },
+    {
+      "id": "email_forwarding_3",
+      "group": "email_forwarding",
+      "category": "Email"
+    },
+    {
+      "id": "email_mail_format_1",
+      "group": "email_mail_format",
+      "category": "Email"
+    },
+    {
+      "id": "email_mail_format_2",
+      "group": "email_mail_format",
+      "category": "Email"
+    },
+    {
+      "id": "email_mail_format_3",
+      "group": "email_mail_format",
+      "category": "Email"
+    },
+    {
+      "id": "network_wifi_connect_1",
+      "group": "network_wifi_connect",
+      "category": "Network"
+    },
+    {
+      "id": "network_wifi_connect_2",
+      "group": "network_wifi_connect",
+      "category": "Network"
+    },
+    {
+      "id": "network_wifi_connect_3",
+      "group": "network_wifi_connect",
+      "category": "Network"
+    },
+    {
+      "id": "network_wifi_drop_1",
+      "group": "network_wifi_drop",
+      "category": "Network"
+    },
+    {
+      "id": "network_wifi_drop_2",
+      "group": "network_wifi_drop",
+      "category": "Network"
+    },
+    {
+      "id": "network_wifi_drop_3",
+      "group": "network_wifi_drop",
+      "category": "Network"
+    },
+    {
+      "id": "network_ethernet_link_1",
+      "group": "network_ethernet_link",
+      "category": "Network"
+    },
+    {
+      "id": "network_ethernet_link_2",
+      "group": "network_ethernet_link",
+      "category": "Network"
+    },
+    {
+      "id": "network_ethernet_link_3",
+      "group": "network_ethernet_link",
+      "category": "Network"
+    },
+    {
+      "id": "network_internet_outage_1",
+      "group": "network_internet_outage",
+      "category": "Network"
+    },
+    {
+      "id": "network_internet_outage_2",
+      "group": "network_internet_outage",
+      "category": "Network"
+    },
+    {
+      "id": "network_internet_outage_3",
+      "group": "network_internet_outage",
+      "category": "Network"
+    },
+    {
+      "id": "network_vpn_disconnect_1",
+      "group": "network_vpn_disconnect",
+      "category": "Network"
+    },
+    {
+      "id": "network_vpn_disconnect_2",
+      "group": "network_vpn_disconnect",
+      "category": "Network"
+    },
+    {
+      "id": "network_vpn_disconnect_3",
+      "group": "network_vpn_disconnect",
+      "category": "Network"
+    },
+    {
+      "id": "network_packet_loss_1",
+      "group": "network_packet_loss",
+      "category": "Network"
+    },
+    {
+      "id": "network_packet_loss_2",
+      "group": "network_packet_loss",
+      "category": "Network"
+    },
+    {
+      "id": "network_packet_loss_3",
+      "group": "network_packet_loss",
+      "category": "Network"
+    },
+    {
+      "id": "network_slow_bandwidth_1",
+      "group": "network_slow_bandwidth",
+      "category": "Network"
+    },
+    {
+      "id": "network_slow_bandwidth_2",
+      "group": "network_slow_bandwidth",
+      "category": "Network"
+    },
+    {
+      "id": "network_slow_bandwidth_3",
+      "group": "network_slow_bandwidth",
+      "category": "Network"
+    },
+    {
+      "id": "network_wifi_coverage_1",
+      "group": "network_wifi_coverage",
+      "category": "Network"
+    },
+    {
+      "id": "network_wifi_coverage_2",
+      "group": "network_wifi_coverage",
+      "category": "Network"
+    },
+    {
+      "id": "network_wifi_coverage_3",
+      "group": "network_wifi_coverage",
+      "category": "Network"
+    },
+    {
+      "id": "network_network_switch_1",
+      "group": "network_network_switch",
+      "category": "Network"
+    },
+    {
+      "id": "network_network_switch_2",
+      "group": "network_network_switch",
+      "category": "Network"
+    },
+    {
+      "id": "network_network_switch_3",
+      "group": "network_network_switch",
+      "category": "Network"
+    },
+    {
+      "id": "network_gateway_1",
+      "group": "network_gateway",
+      "category": "Network"
+    },
+    {
+      "id": "network_gateway_2",
+      "group": "network_gateway",
+      "category": "Network"
+    },
+    {
+      "id": "network_gateway_3",
+      "group": "network_gateway",
+      "category": "Network"
+    },
+    {
+      "id": "network_server_reachability_1",
+      "group": "network_server_reachability",
+      "category": "Network"
+    },
+    {
+      "id": "network_server_reachability_2",
+      "group": "network_server_reachability",
+      "category": "Network"
+    },
+    {
+      "id": "network_server_reachability_3",
+      "group": "network_server_reachability",
+      "category": "Network"
+    },
+    {
+      "id": "network_network_negotiation_1",
+      "group": "network_network_negotiation",
+      "category": "Network"
+    },
+    {
+      "id": "network_network_negotiation_2",
+      "group": "network_network_negotiation",
+      "category": "Network"
+    },
+    {
+      "id": "network_network_negotiation_3",
+      "group": "network_network_negotiation",
+      "category": "Network"
+    },
+    {
+      "id": "hardware_no_power_1",
+      "group": "hardware_no_power",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_no_power_2",
+      "group": "hardware_no_power",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_no_power_3",
+      "group": "hardware_no_power",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_charger_1",
+      "group": "hardware_charger",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_charger_2",
+      "group": "hardware_charger",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_charger_3",
+      "group": "hardware_charger",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_keyboard_1",
+      "group": "hardware_keyboard",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_keyboard_2",
+      "group": "hardware_keyboard",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_keyboard_3",
+      "group": "hardware_keyboard",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_mouse_1",
+      "group": "hardware_mouse",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_mouse_2",
+      "group": "hardware_mouse",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_mouse_3",
+      "group": "hardware_mouse",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_monitor_1",
+      "group": "hardware_monitor",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_monitor_2",
+      "group": "hardware_monitor",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_monitor_3",
+      "group": "hardware_monitor",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_drive_failure_1",
+      "group": "hardware_drive_failure",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_drive_failure_2",
+      "group": "hardware_drive_failure",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_drive_failure_3",
+      "group": "hardware_drive_failure",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_ram_fault_1",
+      "group": "hardware_ram_fault",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_ram_fault_2",
+      "group": "hardware_ram_fault",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_ram_fault_3",
+      "group": "hardware_ram_fault",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_hinge_1",
+      "group": "hardware_hinge",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_hinge_2",
+      "group": "hardware_hinge",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_hinge_3",
+      "group": "hardware_hinge",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_usb_port_1",
+      "group": "hardware_usb_port",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_usb_port_2",
+      "group": "hardware_usb_port",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_usb_port_3",
+      "group": "hardware_usb_port",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_webcam_1",
+      "group": "hardware_webcam",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_webcam_2",
+      "group": "hardware_webcam",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_webcam_3",
+      "group": "hardware_webcam",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_speaker_1",
+      "group": "hardware_speaker",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_speaker_2",
+      "group": "hardware_speaker",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_speaker_3",
+      "group": "hardware_speaker",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_dock_1",
+      "group": "hardware_dock",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_dock_2",
+      "group": "hardware_dock",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_dock_3",
+      "group": "hardware_dock",
+      "category": "Hardware"
+    },
+    {
+      "id": "software_excel_crash_1",
+      "group": "software_excel_crash",
+      "category": "Software"
+    },
+    {
+      "id": "software_excel_crash_2",
+      "group": "software_excel_crash",
+      "category": "Software"
+    },
+    {
+      "id": "software_excel_crash_3",
+      "group": "software_excel_crash",
+      "category": "Software"
+    },
+    {
+      "id": "software_pdf_reader_1",
+      "group": "software_pdf_reader",
+      "category": "Software"
+    },
+    {
+      "id": "software_pdf_reader_2",
+      "group": "software_pdf_reader",
+      "category": "Software"
+    },
+    {
+      "id": "software_pdf_reader_3",
+      "group": "software_pdf_reader",
+      "category": "Software"
+    },
+    {
+      "id": "software_app_update_1",
+      "group": "software_app_update",
+      "category": "Software"
+    },
+    {
+      "id": "software_app_update_2",
+      "group": "software_app_update",
+      "category": "Software"
+    },
+    {
+      "id": "software_app_update_3",
+      "group": "software_app_update",
+      "category": "Software"
+    },
+    {
+      "id": "software_browser_extension_1",
+      "group": "software_browser_extension",
+      "category": "Software"
+    },
+    {
+      "id": "software_browser_extension_2",
+      "group": "software_browser_extension",
+      "category": "Software"
+    },
+    {
+      "id": "software_browser_extension_3",
+      "group": "software_browser_extension",
+      "category": "Software"
+    },
+    {
+      "id": "software_erp_runtime_1",
+      "group": "software_erp_runtime",
+      "category": "Software"
+    },
+    {
+      "id": "software_erp_runtime_2",
+      "group": "software_erp_runtime",
+      "category": "Software"
+    },
+    {
+      "id": "software_erp_runtime_3",
+      "group": "software_erp_runtime",
+      "category": "Software"
+    },
+    {
+      "id": "software_app_slow_1",
+      "group": "software_app_slow",
+      "category": "Software"
+    },
+    {
+      "id": "software_app_slow_2",
+      "group": "software_app_slow",
+      "category": "Software"
+    },
+    {
+      "id": "software_app_slow_3",
+      "group": "software_app_slow",
+      "category": "Software"
+    },
+    {
+      "id": "software_file_association_1",
+      "group": "software_file_association",
+      "category": "Software"
+    },
+    {
+      "id": "software_file_association_2",
+      "group": "software_file_association",
+      "category": "Software"
+    },
+    {
+      "id": "software_file_association_3",
+      "group": "software_file_association",
+      "category": "Software"
+    },
+    {
+      "id": "software_license_activation_1",
+      "group": "software_license_activation",
+      "category": "Software"
+    },
+    {
+      "id": "software_license_activation_2",
+      "group": "software_license_activation",
+      "category": "Software"
+    },
+    {
+      "id": "software_license_activation_3",
+      "group": "software_license_activation",
+      "category": "Software"
+    },
+    {
+      "id": "software_backup_app_1",
+      "group": "software_backup_app",
+      "category": "Software"
+    },
+    {
+      "id": "software_backup_app_2",
+      "group": "software_backup_app",
+      "category": "Software"
+    },
+    {
+      "id": "software_backup_app_3",
+      "group": "software_backup_app",
+      "category": "Software"
+    },
+    {
+      "id": "software_corrupt_document_1",
+      "group": "software_corrupt_document",
+      "category": "Software"
+    },
+    {
+      "id": "software_corrupt_document_2",
+      "group": "software_corrupt_document",
+      "category": "Software"
+    },
+    {
+      "id": "software_corrupt_document_3",
+      "group": "software_corrupt_document",
+      "category": "Software"
+    },
+    {
+      "id": "software_app_uninstall_1",
+      "group": "software_app_uninstall",
+      "category": "Software"
+    },
+    {
+      "id": "software_app_uninstall_2",
+      "group": "software_app_uninstall",
+      "category": "Software"
+    },
+    {
+      "id": "software_app_uninstall_3",
+      "group": "software_app_uninstall",
+      "category": "Software"
+    },
+    {
+      "id": "software_antivirus_update_1",
+      "group": "software_antivirus_update",
+      "category": "Software"
+    },
+    {
+      "id": "software_antivirus_update_2",
+      "group": "software_antivirus_update",
+      "category": "Software"
+    },
+    {
+      "id": "software_antivirus_update_3",
+      "group": "software_antivirus_update",
+      "category": "Software"
+    },
+    {
+      "id": "printer_paper_jam_1",
+      "group": "printer_paper_jam",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_paper_jam_2",
+      "group": "printer_paper_jam",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_paper_jam_3",
+      "group": "printer_paper_jam",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_queue_stuck_1",
+      "group": "printer_queue_stuck",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_queue_stuck_2",
+      "group": "printer_queue_stuck",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_queue_stuck_3",
+      "group": "printer_queue_stuck",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_offline_1",
+      "group": "printer_offline",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_offline_2",
+      "group": "printer_offline",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_offline_3",
+      "group": "printer_offline",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_low_toner_1",
+      "group": "printer_low_toner",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_low_toner_2",
+      "group": "printer_low_toner",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_low_toner_3",
+      "group": "printer_low_toner",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_duplex_1",
+      "group": "printer_duplex",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_duplex_2",
+      "group": "printer_duplex",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_duplex_3",
+      "group": "printer_duplex",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_wrong_color_1",
+      "group": "printer_wrong_color",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_wrong_color_2",
+      "group": "printer_wrong_color",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_wrong_color_3",
+      "group": "printer_wrong_color",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_blank_pages_1",
+      "group": "printer_blank_pages",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_blank_pages_2",
+      "group": "printer_blank_pages",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_blank_pages_3",
+      "group": "printer_blank_pages",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_paper_tray_1",
+      "group": "printer_paper_tray",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_paper_tray_2",
+      "group": "printer_paper_tray",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_paper_tray_3",
+      "group": "printer_paper_tray",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_scanner_feed_1",
+      "group": "printer_scanner_feed",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_scanner_feed_2",
+      "group": "printer_scanner_feed",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_scanner_feed_3",
+      "group": "printer_scanner_feed",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_discovery_1",
+      "group": "printer_discovery",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_discovery_2",
+      "group": "printer_discovery",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_discovery_3",
+      "group": "printer_discovery",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_print_slow_1",
+      "group": "printer_print_slow",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_print_slow_2",
+      "group": "printer_print_slow",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_print_slow_3",
+      "group": "printer_print_slow",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_scan_output_1",
+      "group": "printer_scan_output",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_scan_output_2",
+      "group": "printer_scan_output",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_scan_output_3",
+      "group": "printer_scan_output",
+      "category": "Printer"
+    },
+    {
+      "id": "access_password_reset_1",
+      "group": "access_password_reset",
+      "category": "Access"
+    },
+    {
+      "id": "access_password_reset_2",
+      "group": "access_password_reset",
+      "category": "Access"
+    },
+    {
+      "id": "access_password_reset_3",
+      "group": "access_password_reset",
+      "category": "Access"
+    },
+    {
+      "id": "access_account_locked_1",
+      "group": "access_account_locked",
+      "category": "Access"
+    },
+    {
+      "id": "access_account_locked_2",
+      "group": "access_account_locked",
+      "category": "Access"
+    },
+    {
+      "id": "access_account_locked_3",
+      "group": "access_account_locked",
+      "category": "Access"
+    },
+    {
+      "id": "access_mfa_code_1",
+      "group": "access_mfa_code",
+      "category": "Access"
+    },
+    {
+      "id": "access_mfa_code_2",
+      "group": "access_mfa_code",
+      "category": "Access"
+    },
+    {
+      "id": "access_mfa_code_3",
+      "group": "access_mfa_code",
+      "category": "Access"
+    },
+    {
+      "id": "access_folder_permission_1",
+      "group": "access_folder_permission",
+      "category": "Access"
+    },
+    {
+      "id": "access_folder_permission_2",
+      "group": "access_folder_permission",
+      "category": "Access"
+    },
+    {
+      "id": "access_folder_permission_3",
+      "group": "access_folder_permission",
+      "category": "Access"
+    },
+    {
+      "id": "access_erp_permission_1",
+      "group": "access_erp_permission",
+      "category": "Access"
+    },
+    {
+      "id": "access_erp_permission_2",
+      "group": "access_erp_permission",
+      "category": "Access"
+    },
+    {
+      "id": "access_erp_permission_3",
+      "group": "access_erp_permission",
+      "category": "Access"
+    },
+    {
+      "id": "access_onboarding_account_1",
+      "group": "access_onboarding_account",
+      "category": "Access"
+    },
+    {
+      "id": "access_onboarding_account_2",
+      "group": "access_onboarding_account",
+      "category": "Access"
+    },
+    {
+      "id": "access_onboarding_account_3",
+      "group": "access_onboarding_account",
+      "category": "Access"
+    },
+    {
+      "id": "access_offboarding_account_1",
+      "group": "access_offboarding_account",
+      "category": "Access"
+    },
+    {
+      "id": "access_offboarding_account_2",
+      "group": "access_offboarding_account",
+      "category": "Access"
+    },
+    {
+      "id": "access_offboarding_account_3",
+      "group": "access_offboarding_account",
+      "category": "Access"
+    },
+    {
+      "id": "access_vpn_login_1",
+      "group": "access_vpn_login",
+      "category": "Access"
+    },
+    {
+      "id": "access_vpn_login_2",
+      "group": "access_vpn_login",
+      "category": "Access"
+    },
+    {
+      "id": "access_vpn_login_3",
+      "group": "access_vpn_login",
+      "category": "Access"
+    },
+    {
+      "id": "access_mail_login_1",
+      "group": "access_mail_login",
+      "category": "Access"
+    },
+    {
+      "id": "access_mail_login_2",
+      "group": "access_mail_login",
+      "category": "Access"
+    },
+    {
+      "id": "access_mail_login_3",
+      "group": "access_mail_login",
+      "category": "Access"
+    },
+    {
+      "id": "access_group_membership_1",
+      "group": "access_group_membership",
+      "category": "Access"
+    },
+    {
+      "id": "access_group_membership_2",
+      "group": "access_group_membership",
+      "category": "Access"
+    },
+    {
+      "id": "access_group_membership_3",
+      "group": "access_group_membership",
+      "category": "Access"
+    },
+    {
+      "id": "access_guest_account_1",
+      "group": "access_guest_account",
+      "category": "Access"
+    },
+    {
+      "id": "access_guest_account_2",
+      "group": "access_guest_account",
+      "category": "Access"
+    },
+    {
+      "id": "access_guest_account_3",
+      "group": "access_guest_account",
+      "category": "Access"
+    },
+    {
+      "id": "access_shared_mailbox_access_1",
+      "group": "access_shared_mailbox_access",
+      "category": "Access"
+    },
+    {
+      "id": "access_shared_mailbox_access_2",
+      "group": "access_shared_mailbox_access",
+      "category": "Access"
+    },
+    {
+      "id": "access_shared_mailbox_access_3",
+      "group": "access_shared_mailbox_access",
+      "category": "Access"
+    }
+  ],
+  "validation": [
+    {
+      "id": "email_signature_1",
+      "group": "email_signature",
+      "category": "Email"
+    },
+    {
+      "id": "email_signature_2",
+      "group": "email_signature",
+      "category": "Email"
+    },
+    {
+      "id": "email_signature_3",
+      "group": "email_signature",
+      "category": "Email"
+    },
+    {
+      "id": "email_duplicate_mail_1",
+      "group": "email_duplicate_mail",
+      "category": "Email"
+    },
+    {
+      "id": "email_duplicate_mail_2",
+      "group": "email_duplicate_mail",
+      "category": "Email"
+    },
+    {
+      "id": "email_duplicate_mail_3",
+      "group": "email_duplicate_mail",
+      "category": "Email"
+    },
+    {
+      "id": "email_sent_folder_1",
+      "group": "email_sent_folder",
+      "category": "Email"
+    },
+    {
+      "id": "email_sent_folder_2",
+      "group": "email_sent_folder",
+      "category": "Email"
+    },
+    {
+      "id": "email_sent_folder_3",
+      "group": "email_sent_folder",
+      "category": "Email"
+    },
+    {
+      "id": "network_dhcp_address_1",
+      "group": "network_dhcp_address",
+      "category": "Network"
+    },
+    {
+      "id": "network_dhcp_address_2",
+      "group": "network_dhcp_address",
+      "category": "Network"
+    },
+    {
+      "id": "network_dhcp_address_3",
+      "group": "network_dhcp_address",
+      "category": "Network"
+    },
+    {
+      "id": "network_ip_conflict_1",
+      "group": "network_ip_conflict",
+      "category": "Network"
+    },
+    {
+      "id": "network_ip_conflict_2",
+      "group": "network_ip_conflict",
+      "category": "Network"
+    },
+    {
+      "id": "network_ip_conflict_3",
+      "group": "network_ip_conflict",
+      "category": "Network"
+    },
+    {
+      "id": "network_firewall_path_1",
+      "group": "network_firewall_path",
+      "category": "Network"
+    },
+    {
+      "id": "network_firewall_path_2",
+      "group": "network_firewall_path",
+      "category": "Network"
+    },
+    {
+      "id": "network_firewall_path_3",
+      "group": "network_firewall_path",
+      "category": "Network"
+    },
+    {
+      "id": "hardware_battery_1",
+      "group": "hardware_battery",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_battery_2",
+      "group": "hardware_battery",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_battery_3",
+      "group": "hardware_battery",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_ups_1",
+      "group": "hardware_ups",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_ups_2",
+      "group": "hardware_ups",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_ups_3",
+      "group": "hardware_ups",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_power_supply_1",
+      "group": "hardware_power_supply",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_power_supply_2",
+      "group": "hardware_power_supply",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_power_supply_3",
+      "group": "hardware_power_supply",
+      "category": "Hardware"
+    },
+    {
+      "id": "software_app_install_1",
+      "group": "software_app_install",
+      "category": "Software"
+    },
+    {
+      "id": "software_app_install_2",
+      "group": "software_app_install",
+      "category": "Software"
+    },
+    {
+      "id": "software_app_install_3",
+      "group": "software_app_install",
+      "category": "Software"
+    },
+    {
+      "id": "software_browser_crash_1",
+      "group": "software_browser_crash",
+      "category": "Software"
+    },
+    {
+      "id": "software_browser_crash_2",
+      "group": "software_browser_crash",
+      "category": "Software"
+    },
+    {
+      "id": "software_browser_crash_3",
+      "group": "software_browser_crash",
+      "category": "Software"
+    },
+    {
+      "id": "software_video_app_1",
+      "group": "software_video_app",
+      "category": "Software"
+    },
+    {
+      "id": "software_video_app_2",
+      "group": "software_video_app",
+      "category": "Software"
+    },
+    {
+      "id": "software_video_app_3",
+      "group": "software_video_app",
+      "category": "Software"
+    },
+    {
+      "id": "printer_faded_print_1",
+      "group": "printer_faded_print",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_faded_print_2",
+      "group": "printer_faded_print",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_faded_print_3",
+      "group": "printer_faded_print",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_print_alignment_1",
+      "group": "printer_print_alignment",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_print_alignment_2",
+      "group": "printer_print_alignment",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_print_alignment_3",
+      "group": "printer_print_alignment",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_print_streaks_1",
+      "group": "printer_print_streaks",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_print_streaks_2",
+      "group": "printer_print_streaks",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_print_streaks_3",
+      "group": "printer_print_streaks",
+      "category": "Printer"
+    },
+    {
+      "id": "access_sso_login_1",
+      "group": "access_sso_login",
+      "category": "Access"
+    },
+    {
+      "id": "access_sso_login_2",
+      "group": "access_sso_login",
+      "category": "Access"
+    },
+    {
+      "id": "access_sso_login_3",
+      "group": "access_sso_login",
+      "category": "Access"
+    },
+    {
+      "id": "access_disabled_account_1",
+      "group": "access_disabled_account",
+      "category": "Access"
+    },
+    {
+      "id": "access_disabled_account_2",
+      "group": "access_disabled_account",
+      "category": "Access"
+    },
+    {
+      "id": "access_disabled_account_3",
+      "group": "access_disabled_account",
+      "category": "Access"
+    },
+    {
+      "id": "access_role_change_1",
+      "group": "access_role_change",
+      "category": "Access"
+    },
+    {
+      "id": "access_role_change_2",
+      "group": "access_role_change",
+      "category": "Access"
+    },
+    {
+      "id": "access_role_change_3",
+      "group": "access_role_change",
+      "category": "Access"
+    }
+  ],
+  "test": [
+    {
+      "id": "email_bounce_address_1",
+      "group": "email_bounce_address",
+      "category": "Email"
+    },
+    {
+      "id": "email_bounce_address_2",
+      "group": "email_bounce_address",
+      "category": "Email"
+    },
+    {
+      "id": "email_bounce_address_3",
+      "group": "email_bounce_address",
+      "category": "Email"
+    },
+    {
+      "id": "email_delayed_delivery_1",
+      "group": "email_delayed_delivery",
+      "category": "Email"
+    },
+    {
+      "id": "email_delayed_delivery_2",
+      "group": "email_delayed_delivery",
+      "category": "Email"
+    },
+    {
+      "id": "email_delayed_delivery_3",
+      "group": "email_delayed_delivery",
+      "category": "Email"
+    },
+    {
+      "id": "email_attachment_missing_1",
+      "group": "email_attachment_missing",
+      "category": "Email"
+    },
+    {
+      "id": "email_attachment_missing_2",
+      "group": "email_attachment_missing",
+      "category": "Email"
+    },
+    {
+      "id": "email_attachment_missing_3",
+      "group": "email_attachment_missing",
+      "category": "Email"
+    },
+    {
+      "id": "network_dns_failure_1",
+      "group": "network_dns_failure",
+      "category": "Network"
+    },
+    {
+      "id": "network_dns_failure_2",
+      "group": "network_dns_failure",
+      "category": "Network"
+    },
+    {
+      "id": "network_dns_failure_3",
+      "group": "network_dns_failure",
+      "category": "Network"
+    },
+    {
+      "id": "network_vpn_routing_1",
+      "group": "network_vpn_routing",
+      "category": "Network"
+    },
+    {
+      "id": "network_vpn_routing_2",
+      "group": "network_vpn_routing",
+      "category": "Network"
+    },
+    {
+      "id": "network_vpn_routing_3",
+      "group": "network_vpn_routing",
+      "category": "Network"
+    },
+    {
+      "id": "network_proxy_error_1",
+      "group": "network_proxy_error",
+      "category": "Network"
+    },
+    {
+      "id": "network_proxy_error_2",
+      "group": "network_proxy_error",
+      "category": "Network"
+    },
+    {
+      "id": "network_proxy_error_3",
+      "group": "network_proxy_error",
+      "category": "Network"
+    },
+    {
+      "id": "hardware_overheating_1",
+      "group": "hardware_overheating",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_overheating_2",
+      "group": "hardware_overheating",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_overheating_3",
+      "group": "hardware_overheating",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_microphone_1",
+      "group": "hardware_microphone",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_microphone_2",
+      "group": "hardware_microphone",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_microphone_3",
+      "group": "hardware_microphone",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_cmos_1",
+      "group": "hardware_cmos",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_cmos_2",
+      "group": "hardware_cmos",
+      "category": "Hardware"
+    },
+    {
+      "id": "hardware_cmos_3",
+      "group": "hardware_cmos",
+      "category": "Hardware"
+    },
+    {
+      "id": "software_word_crash_1",
+      "group": "software_word_crash",
+      "category": "Software"
+    },
+    {
+      "id": "software_word_crash_2",
+      "group": "software_word_crash",
+      "category": "Software"
+    },
+    {
+      "id": "software_word_crash_3",
+      "group": "software_word_crash",
+      "category": "Software"
+    },
+    {
+      "id": "software_windows_update_1",
+      "group": "software_windows_update",
+      "category": "Software"
+    },
+    {
+      "id": "software_windows_update_2",
+      "group": "software_windows_update",
+      "category": "Software"
+    },
+    {
+      "id": "software_windows_update_3",
+      "group": "software_windows_update",
+      "category": "Software"
+    },
+    {
+      "id": "software_os_boot_1",
+      "group": "software_os_boot",
+      "category": "Software"
+    },
+    {
+      "id": "software_os_boot_2",
+      "group": "software_os_boot",
+      "category": "Software"
+    },
+    {
+      "id": "software_os_boot_3",
+      "group": "software_os_boot",
+      "category": "Software"
+    },
+    {
+      "id": "printer_driver_install_1",
+      "group": "printer_driver_install",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_driver_install_2",
+      "group": "printer_driver_install",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_driver_install_3",
+      "group": "printer_driver_install",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_print_size_1",
+      "group": "printer_print_size",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_print_size_2",
+      "group": "printer_print_size",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_print_size_3",
+      "group": "printer_print_size",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_print_noise_1",
+      "group": "printer_print_noise",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_print_noise_2",
+      "group": "printer_print_noise",
+      "category": "Printer"
+    },
+    {
+      "id": "printer_print_noise_3",
+      "group": "printer_print_noise",
+      "category": "Printer"
+    },
+    {
+      "id": "access_mfa_phone_1",
+      "group": "access_mfa_phone",
+      "category": "Access"
+    },
+    {
+      "id": "access_mfa_phone_2",
+      "group": "access_mfa_phone",
+      "category": "Access"
+    },
+    {
+      "id": "access_mfa_phone_3",
+      "group": "access_mfa_phone",
+      "category": "Access"
+    },
+    {
+      "id": "access_password_expired_1",
+      "group": "access_password_expired",
+      "category": "Access"
+    },
+    {
+      "id": "access_password_expired_2",
+      "group": "access_password_expired",
+      "category": "Access"
+    },
+    {
+      "id": "access_password_expired_3",
+      "group": "access_password_expired",
+      "category": "Access"
+    },
+    {
+      "id": "access_admin_rights_1",
+      "group": "access_admin_rights",
+      "category": "Access"
+    },
+    {
+      "id": "access_admin_rights_2",
+      "group": "access_admin_rights",
+      "category": "Access"
+    },
+    {
+      "id": "access_admin_rights_3",
+      "group": "access_admin_rights",
+      "category": "Access"
+    }
+  ]
+}

@@ -1,141 +1,142 @@
 # Smart IT Helpdesk
 
-A capstone project for handling workplace IT support requests.
+An AI capstone that brings employee IT requests, administrator workflows and category suggestions into one web application.
 
-**Release: Phase 2 / 0.2.0.** Accounts, PostgreSQL storage and ticket management are implemented. The AI classifier, knowledge upload, retrieval chat, public deployment and final evaluation are subsequent phases.
+**Phase 3 / version 0.3.0:** React + Vite + TypeScript + Tailwind CSS, Python + FastAPI, PostgreSQL and a working scikit-learn classifier. This is a local development release; a public application deployment has not been completed.
 
-## Problem
+## Problem and proposed solution
 
-Employees report IT problems through scattered calls and messages. The IT team loses context, repeats questions, and has difficulty tracking progress. Smart IT Helpdesk gives each issue an owner, a conversation and a recorded resolution workflow.
+IT teams often receive issues through scattered calls, messages and email. Requests lack consistent categories, employees cannot see progress, and administrators repeat triage work. Smart IT Helpdesk provides a central ticket, conversation and status history. An AI model suggests a category while the person submitting the issue keeps the final choice.
 
-## Current features
+The six categories are **Email, Network, Hardware, Software, Printer and Access**. The application does not diagnose devices, run repair commands or automatically grant access.
 
-- Employee registration; local administrator provisioning; login/logout.
-- Argon2 password hashes and revocable PostgreSQL-backed sessions.
-- Employees create tickets and access only their own tickets.
-- Administrators view all tickets and update category, priority and status.
-- Categories: Email, Network, Hardware, Software, Printer, Access.
-- Priorities: Low, Normal, High. Statuses: Open, In Progress, Resolved.
-- Replies and a chronological history of ticket metadata changes.
-- Dashboard counts, search, filters and pagination backed by database queries.
-- Stale administrator edits are rejected with HTTP 409.
-- Responsive desktop/mobile interface; dates shown in Asia/Dhaka.
-- No seeded users, default passwords, fabricated counts or simulated AI answers.
+## Working features
 
-## Stack
+- Employee registration, administrator provisioning, secure sign-in and sign-out.
+- PostgreSQL-backed tickets, comments, activity history and dashboard counts.
+- Employees see their own requests; administrators can view and manage all requests.
+- Status, priority and category filters, search and pagination.
+- English ticket-category suggestions with model scores and an explicit **Use category** action.
+- Manual selection when a suggestion is uncertain, unsupported or unavailable.
+- An immutable AI assessment at ticket creation, stored alongside the person's selected category.
+- An administrator **AI insights** page with measured metrics, confusion matrix and limitations.
+- Responsive desktop and mobile layouts.
 
-| Part | Technology |
+## Setup
+
+**Already running Phase 2?** Follow [Phase 3 Windows upgrade](docs/PHASE3_SETUP.md).
+
+**First installation?** Install Python 3.11, Node 22.12+ and PostgreSQL 17, then follow [Windows setup](docs/WINDOWS_SETUP.md) for database and administrator creation. Exact dependencies are recorded in the lockfiles.
+
+From Windows PowerShell, backend:
+
+```powershell
+& {
+    $ErrorActionPreference = "Stop"
+    Set-Location "D:\Projects\SmartITHelpdesk\backend"
+    if (-not (Test-Path ".\.venv\Scripts\python.exe")) {
+        python -m venv .venv
+        if ($LASTEXITCODE -ne 0) { throw "Environment creation failed." }
+    }
+    .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+    if ($LASTEXITCODE -ne 0) { throw "Package installation failed." }
+    .\.venv\Scripts\python.exe -m app.setup_local
+    if ($LASTEXITCODE -ne 0) { throw "Database setup failed." }
+    .\.venv\Scripts\python.exe -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+}
+```
+
+In another PowerShell, frontend:
+
+```powershell
+& {
+    Set-Location "D:\Projects\SmartITHelpdesk\frontend"
+    npm.cmd ci
+    if ($LASTEXITCODE -ne 0) { throw "Frontend installation failed." }
+    npm.cmd run dev
+}
+```
+
+Open <http://127.0.0.1:5173>. Use this hostname consistently. The Vite proxy forwards `/api` to FastAPI on port 8000. API documentation is at <http://127.0.0.1:8000/docs>.
+
+The local setup helper keeps an existing `backend/.env`, applies pending Alembic migrations and keeps the existing administrator. On first use it creates a dedicated non-superuser database account and asks for administrator details. Application secrets are ignored by Git.
+
+## Try the AI workflow
+
+1. Sign in and choose **Create ticket**.
+2. Title: `Unable to connect to office Wi-Fi`.
+3. Description: `My laptop cannot connect to the office wireless network. The Wi-Fi connection fails every time.`
+4. Click **Suggest category**. Review the score and choose **Use Network**, or select another category yourself.
+5. Submit the ticket. The detail page shows the AI assessment and category selected at submission.
+6. As administrator, change the category or status. The event history records the change; the original AI assessment stays intact.
+7. Open **AI insights** as administrator to inspect the evaluation.
+
+Changing the title or description clears an earlier suggestion. The server recomputes the assessment from the submitted text, so stale or client-forged predictions are not stored. Existing Phase 2 tickets remain readable with no fabricated historical AI result.
+
+## AI methodology and results
+
+The bundled dataset contains **324 synthetic English examples**, grouped into **108 issue intents**. It was generated for this capstone; it is not a collection of real employee tickets and its labels have not undergone independent human review.
+
+Word and character TF-IDF features feed a Logistic Regression classifier. Whole intent groups are divided into 216 training, 54 validation and 54 test examples. Vocabulary and IDF are fitted on training data only. Validation chooses an abstention threshold; test examples are never used to fit the model or choose the threshold.
+
+| Held-out synthetic test metric | Observed result |
 | --- | --- |
-| Frontend | React, Vite, TypeScript |
-| Styling | Tailwind CSS and responsive CSS |
-| Backend | Python 3.11+, FastAPI, Pydantic |
-| Storage | PostgreSQL, SQLAlchemy 2.0, Psycopg 3 |
-| Migrations | Alembic |
-| Authentication | pwdlib / Argon2, opaque server-side sessions |
-| Planned AI | TF-IDF + Logistic Regression; source-linked document retrieval |
+| Accuracy before abstention | 50 / 54 = 92.59% |
+| Macro-F1 | 0.9255 |
+| Suggestion coverage | 36 / 54 = 66.67% |
+| Correct among accepted suggestions | 36 / 36 |
+| Majority-class baseline | 16.67% |
+| Unrelated test requests incorrectly accepted | 1 / 12 |
 
-Node 22.12+ is required. Exact resolved versions are in the dependency lockfiles.
+**These small synthetic results do not establish real-office accuracy.** Scores are not calibrated confidence guarantees. Bangla and Banglish have not been validated. A person confirms every category.
 
-## Windows setup
+The model fits once per backend process from the bundled training partition. It requires no paid API, external AI service or downloaded model pickle. See the [model card](docs/MODEL_CARD.md), [dataset provenance](backend/data/README.md) and [evaluation evidence](docs/evaluation/README.md).
 
-Follow [docs/WINDOWS_SETUP.md](docs/WINDOWS_SETUP.md). All terminal commands use PowerShell. No environment activation, BAT file or machine-wide script-policy change is needed.
+To reproduce evaluation without a database:
 
-For Phase 1, use apply_update.py from the update bundle. It validates the package, backs up affected source files and preserves environments, secrets and Git history. Its backup is a **source-code backup**, not a PostgreSQL backup.
-
-For a fresh checkout:
-
-~~~powershell
+```powershell
 Set-Location "D:\Projects\SmartITHelpdesk\backend"
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -m app.setup_local
-.\.venv\Scripts\python.exe -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
-~~~
+.\.venv\Scripts\python.exe -m app.train_classifier
+```
 
-In another PowerShell:
+This writes `backend/evaluation/report.json`, `split_manifest.json`, `test_predictions.csv` and `confusion_matrix.csv`. Local output is ignored by Git. The administrator page calculates the same report from the running model.
 
-~~~powershell
-Set-Location "D:\Projects\SmartITHelpdesk\frontend"
-npm.cmd ci
-npm.cmd run dev
-~~~
+## Project structure
 
-Open <http://127.0.0.1:5173>. Keep both server windows running. Use this hostname consistently; localhost and 127.0.0.1 have separate cookies.
-
-### Local setup
-
-The setup command prompts for the PostgreSQL port and postgres password, creates a dedicated non-superuser role called helpdesk_app and database smart_it_helpdesk, writes the application's settings to backend/.env, applies migrations and asks you to create the helpdesk administrator.
-
-The PostgreSQL administrator password is never saved. Existing .env settings are kept. An existing role/database without the matching .env stops setup rather than taking it over. Running setup again reapplies pending migrations and creates an administrator only if none is active.
-
-The helpdesk password needs 12–128 characters. Password input is intentionally invisible.
-
-To deliberately create another administrator:
-
-~~~powershell
-Set-Location "D:\Projects\SmartITHelpdesk\backend"
-.\.venv\Scripts\python.exe -m app.create_admin
-~~~
-
-An existing email is never silently promoted or reset.
-
-## Usage
-
-1. Sign in with the administrator created during setup.
-2. Create a ticket; open it and use Manage ticket to change status/category/priority.
-3. Send a reply. Conversation and change history remain on the ticket.
-4. Sign out and create an employee account to test employee access.
-5. The employee can see and reply to their own tickets. The API also enforces permissions.
-6. Refresh a ticket or reload the page to fetch recent changes. This release has no push/live-update channel.
-
-API documentation: <http://127.0.0.1:8000/docs>. For write requests, set the x-helpdesk-request header to 1. Login sets the session cookie.
-
-## Code and documentation
-
-| Location | Contents |
+| Location | Purpose |
 | --- | --- |
-| backend/app | API, models, authentication and local setup |
-| backend/alembic | Versioned migrations |
-| backend/tests | Database-backed integration tests |
-| backend/.env.example | Settings template; never commit .env |
-| frontend/src | Login, overview, ticket and reply screens |
-| docs/WINDOWS_SETUP.md | PowerShell setup and troubleshooting |
-| docs/ARCHITECTURE.md | Schema, API and security decisions |
-| docs/VERIFICATION.md | Observed tests and limitations |
+| `frontend/src/` | React application and responsive UI |
+| `backend/app/main.py` | Authenticated API and ticket workflow |
+| `backend/app/classifier.py` | Grouped splits, fitted pipeline, abstention and metrics |
+| `backend/app/train_classifier.py` | Reproducible evaluation export |
+| `backend/data/` | Synthetic examples, negative controls and provenance |
+| `backend/alembic/` | Versioned database migrations |
+| `backend/tests/` | Model, authorization and persistence regression tests |
+| `docs/` | Setup, architecture, methodology and observed verification |
 
-## Version control
+## Verification
 
-Before applying Phase 2, commit the working Phase 1 source if you have not done so:
+Nineteen automated tests passed, including employee isolation, server-generated AI snapshots, manual overrides, unavailable-model fallback and evidence that modifying held-out test text cannot change learned parameters or the validation threshold. Production frontend build and browser workflows passed. A migration from Phase 2 preserved an existing ticket. See [verification details and limits](docs/VERIFICATION.md).
 
-~~~powershell
-Set-Location "D:\Projects\SmartITHelpdesk"
-git init -b main
-git add .gitignore README.txt backend frontend
-git commit -m "Set up React frontend and FastAPI health endpoint"
-~~~
+To run model-only tests:
 
-Skip git init if the repository already exists. After Phase 2 works:
+```powershell
+& {
+    Set-Location "D:\Projects\SmartITHelpdesk\backend"
+    .\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+    if ($LASTEXITCODE -ne 0) { throw "Test dependency installation failed." }
+    .\.venv\Scripts\python.exe -m pytest tests/test_classifier.py -q
+}
+```
 
-~~~powershell
-Set-Location "D:\Projects\SmartITHelpdesk"
-git add .gitignore README.md README.txt backend frontend docs
-git commit -m "Add PostgreSQL accounts and ticket management"
-~~~
+Integration tests additionally require `TEST_DATABASE_URL` for a disposable PostgreSQL database. They create a randomly named schema and remove only that schema. Without this explicit setting integration tests are skipped, not counted as passing.
 
-If Git requests identity, configure your own name and email. Do not invent authors or backdate commits. GitHub creation/push will follow; this archive does not claim a remote repository exists.
+## Remaining capstone work
 
-## Phase 3 AI methodology
+- Admin PDF/TXT knowledge upload and source-linked retrieval/chat.
+- Independent label review and permissioned, anonymized real-ticket evaluation.
+- Bangla/Banglish evaluation if those languages are included in the final claim.
+- Free-host deployment, production configuration and a verified live URL.
+- Documentation screenshots and a final report covering the completed application, results and limitations.
 
-- Acquire labeled IT-issue examples with documented source and permission.
-- Group duplicates before train/validation/test splitting to prevent leakage.
-- Fit TF-IDF + Logistic Regression on training data only.
-- Select uncertainty thresholds on validation data and retain manual review.
-- Report measured test accuracy, macro-F1 and a confusion matrix.
-- Add admin-uploaded PDF/TXT extraction and source-linked TF-IDF retrieval.
-- Evaluate English first; Bangla/Banglish support needs separate evidence.
-
-No model is trained or evaluated in this release. There are no claimed accuracy figures.
-
-## Following phases
-
-AI and document assistance; measured evaluation; usage screenshots and final report; GitHub publication; free-host deployment. Verify hosting quotas when deploying. Before public access, configure HTTPS, secure cookies, exact origins, registration policy and shared rate limits.
+The repository records real implementation commits. No earlier development history or deployment result is invented. Public deployment still needs HTTPS, secure cookies, exact allowed origins, an appropriate registration policy and shared request limits. Authentication details are documented in [architecture](docs/ARCHITECTURE.md).

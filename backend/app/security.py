@@ -54,7 +54,7 @@ CurrentUser = Annotated[User, Depends(current_user)]
 
 def require_admin(user: CurrentUser) -> User:
     if user.role != "admin":
-        raise HTTPException(403, "Only an administrator can change ticket details.")
+        raise HTTPException(403, "This action requires an administrator account.")
     return user
 
 

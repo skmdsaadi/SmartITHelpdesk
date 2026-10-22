@@ -1,0 +1,7 @@
+actual / predicted,Access,Email,Hardware,Network,Printer,Software
+Access,8,1,0,0,0,0
+Email,0,9,0,0,0,0
+Hardware,0,0,9,0,0,0
+Network,0,0,0,8,0,1
+Printer,0,0,0,0,9,0
+Software,0,0,2,0,0,7

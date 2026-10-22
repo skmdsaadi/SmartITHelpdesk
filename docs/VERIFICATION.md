@@ -1,52 +1,61 @@
-# Phase 2 verification
+# Phase 3 verification
 
 ## Observed checks
 
-| Check | Result |
+| Check | Observed result |
 | --- | --- |
-| TypeScript and Vite production build | Passed |
-| Python dependency consistency | Passed |
-| Python 3.11 / Windows x64 binary dependency resolution | Passed dry run |
-| Database-backed integration tests | 10 passed |
-| Registration and session cookies through the Vite proxy | Passed in browser |
-| Employee ticket creation and reply | Passed in browser |
-| Administrator login, metadata update and reply | Passed in browser |
-| Page reload and API process restart with the database retained | Ticket and reply remained accessible |
-| Ticket search and clearing filters | Passed in browser |
-| Logout | Returned to sign-in screen |
-| Desktop 1440 px and mobile 390 px layout | No horizontal document overflow |
-| Browser JavaScript errors in the tested workflow | None |
-| Update helper: backup, exact source copy and environment/secret/Git preservation | Passed |
-| Update helper: wrong-project and corrupt-package rejection | Passed |
+| TypeScript check and Vite production build | Passed |
+| Python dependency consistency (`pip check`) | Passed |
+| Runtime dependency wheels for Python 3.11 / Windows x64 | Resolution dry run passed; not native execution |
+| Automated model + database-backed API tests | **19 passed** |
+| Exact duplicate rejection and Windows CRLF-independent dataset identity | Passed |
+| Intent-group train/validation/test separation | Passed |
+| Mutating held-out test text cannot affect learned coefficients or chosen threshold | Passed |
+| AI endpoint authentication, input validation, CSRF and administrator report access | Passed |
+| Manual category override, server-generated JSONB snapshot and owner isolation | Passed |
+| Original snapshot survives later administrator category correction | Passed |
+| Bangla text and unavailable-model fallback preserve ordinary ticket submission | Passed |
+| Migration from revision 0001 with an existing ticket to revision 0002 | Passed in browser test setup; old ticket stayed readable |
+| Browser suggestion, explicit Apply, manual override and stale-response cancellation | Passed |
+| Ticket/reply/AI snapshot after page reload and API-process restart | Persisted correctly with database retained |
+| Registration, login, comments, status updates, search and logout | Browser regression passed |
+| AI form, ticket detail and evaluation at desktop 1440 px / mobile 390 px | No horizontal document overflow; screenshots inspected |
+| Browser JavaScript errors in exercised flows | None |
 
-Integration tests cover password hashing and token storage, case-insensitive duplicate email handling, public role/owner injection rejection, employee isolation, unauthorized reads/replies/updates, audit events, resolution/reopening, stale revisions, query validation, literal wildcard search, pagination, CSRF guards, expired/inactive sessions, login throttling, separate-client persistence and model/migration alignment.
+The original account/ticket tests also cover password and session-token hashing, duplicate email normalization, role/owner injection rejection, employee isolation, stale edit conflicts, resolution/reopening, query validation, literal wildcard search, session expiry/inactive accounts and login throttling. Migration metadata matched the SQLAlchemy models.
 
-## Environment and limits
+## Environment and practical limits
 
-The checks ran on Linux, Python 3.12 and Node 24. The user's target is Windows, Python 3.11 and Node 24. Windows binary package resolution was checked; native Windows installation and PowerShell execution were not run here.
+Checks ran on Linux with Python 3.12, Node 24, the pinned numerical dependencies, Playwright 1.64.1 and headless Chromium 153. The target user machine is Windows/Python 3.11/Node 24. Windows wheels were resolved, including the added scientific packages; PowerShell commands and Windows execution were not run in this test environment. The Windows-only tzdata pin was already part of Phase 2; Linux pip marker evaluation omits it during the cross-platform dry run.
 
-Integration and browser checks used PGlite 0.5.11 with pglite-socket 0.2.14, which exposes a WebAssembly build of PostgreSQL through its wire protocol. Application queries, migrations, constraints and transactions ran against that engine. This is not a native PostgreSQL 17 service test or a concurrency/load test. The delivered application requires PostgreSQL and does not include PGlite.
+Database tests used PGlite 0.5.11 with pglite-socket 0.2.14, exposing a WebAssembly PostgreSQL build through the PostgreSQL wire protocol. Real application queries, Alembic migrations, JSONB, constraints and transactions executed against that engine. This is not a native PostgreSQL 17 service test or a load/concurrency test. PGlite is not an application dependency.
 
-The local PostgreSQL installer, creation of a native database/role and the local setup prompt sequence still need to run on the user's computer. The administrator creation command was exercised against the test database. Database-server restart/disk durability and public hosting were not tested.
+The API-process restart test retained the database process; it does not establish database-server disk durability. Public hosting, distributed rate limits and production performance are not verified. The app is still a local development release.
 
-Playwright 1.64.1 and headless Chromium 153 exercised the frontend. Screenshots were inspected internally for layout; synthetic test accounts/data are not included in the deliverable.
+One Starlette TestClient/httpx deprecation warning was emitted. It did not fail tests and is unrelated to normal browser/API runtime.
 
-Starlette emitted one TestClient/httpx deprecation warning. It did not fail the integration tests and does not affect the normal browser/API runtime.
+Screenshot accounts (`Demo Employee`, `Demo IT Admin`) and tickets are seeded test data. Captures were inspected locally for layout and are not included in this commit. No operational company data or pre-provisioned production account is bundled.
 
-## Running the integration tests
+## Reproduce the automated tests
 
-Use a disposable PostgreSQL database and a role permitted to create schemas. Set TEST_DATABASE_URL to its connection URL. The fixture creates a random schema, applies the migration there and drops only that schema afterward. Tests skip when this variable is absent; skipped tests are not a pass.
+From the backend folder:
 
-From backend:
-
-~~~powershell
+```powershell
 .\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+.\.venv\Scripts\python.exe -m pytest tests/test_classifier.py -q
+```
+
+For all 19 tests, supply `TEST_DATABASE_URL` for a disposable PostgreSQL database and a role allowed to create schemas. The fixture creates a random schema, applies migrations there, and drops only that schema at completion. Without this setting, the database-backed tests skip; a skip is not a pass.
+
+```powershell
 $env:TEST_DATABASE_URL = "postgresql+psycopg://TEST_USER:TEST_PASSWORD@127.0.0.1:5432/TEST_DATABASE"
 .\.venv\Scripts\python.exe -m pytest -q
-~~~
+```
 
-Replace the placeholders locally. Never commit credentials or share the complete connection string.
+Replace placeholders locally and never commit credentials. Model evaluation can be reproduced separately with `python -m app.train_classifier`; it does not require a database.
 
-## User acceptance
+## Model evidence and remaining acceptance
 
-On the actual Windows computer, check setup, administrator login, an employee's isolated ticket list, replies/status history and persistence after stopping/restarting the API. AI accuracy and deployment availability have not been measured in this phase.
+Measured synthetic test accuracy is 50/54 (92.59%), macro-F1 0.9255 and suggestion coverage 36/54. All 36 accepted positive-class examples were correct, but one of twelve unrelated test controls was falsely accepted. See MODEL_CARD.md and docs/evaluation for all counts and limitations. These are not measurements of real-office accuracy.
+
+On the actual Windows computer, follow PHASE3_SETUP.md, verify an earlier ticket remains readable, submit an English ticket using or overriding its suggestion, refresh its saved assessment, and inspect AI insights as administrator.

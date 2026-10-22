@@ -1,0 +1,2594 @@
+[
+  {
+    "id": "email_outbox_1",
+    "group": "email_outbox",
+    "category": "Email",
+    "text": "Outgoing email stays in the Outlook outbox and never reaches the recipient.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_outbox_2",
+    "group": "email_outbox",
+    "category": "Email",
+    "text": "I can read messages but every email I send remains queued in outbox.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_outbox_3",
+    "group": "email_outbox",
+    "category": "Email",
+    "text": "The mail client will not send my reply although incoming mail works.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_inbox_sync_1",
+    "group": "email_inbox_sync",
+    "category": "Email",
+    "text": "Outlook is missing incoming emails that are visible in webmail.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_inbox_sync_2",
+    "group": "email_inbox_sync",
+    "category": "Email",
+    "text": "My inbox stopped synchronizing with the mail server yesterday.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_inbox_sync_3",
+    "group": "email_inbox_sync",
+    "category": "Email",
+    "text": "Messages arrive on my phone but the desktop email inbox is not updating.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_attachment_size_1",
+    "group": "email_attachment_size",
+    "category": "Email",
+    "text": "An email attachment is rejected because the message exceeds the size limit.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_attachment_size_2",
+    "group": "email_attachment_size",
+    "category": "Email",
+    "text": "I cannot send the large presentation as an email attachment.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_attachment_size_3",
+    "group": "email_attachment_size",
+    "category": "Email",
+    "text": "The mail server returns a maximum message size error when I attach a file.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_junk_folder_1",
+    "group": "email_junk_folder",
+    "category": "Email",
+    "text": "Messages from our regular supplier keep going to the junk email folder.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_junk_folder_2",
+    "group": "email_junk_folder",
+    "category": "Email",
+    "text": "Legitimate customer emails are being marked as spam by our mailbox.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_junk_folder_3",
+    "group": "email_junk_folder",
+    "category": "Email",
+    "text": "Expected business mail arrives in spam instead of the inbox.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_bounce_address_1",
+    "group": "email_bounce_address",
+    "category": "Email",
+    "text": "My email to a client bounces with recipient address not found.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_bounce_address_2",
+    "group": "email_bounce_address",
+    "category": "Email",
+    "text": "The mail delivery report says the destination mailbox does not exist.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_bounce_address_3",
+    "group": "email_bounce_address",
+    "category": "Email",
+    "text": "Sending to one external address produces an undeliverable email response.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_mailbox_quota_1",
+    "group": "email_mailbox_quota",
+    "category": "Email",
+    "text": "My mailbox is full and the mail server will not accept incoming email.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_mailbox_quota_2",
+    "group": "email_mailbox_quota",
+    "category": "Email",
+    "text": "Outlook warns that the mailbox storage quota has been exceeded.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_mailbox_quota_3",
+    "group": "email_mailbox_quota",
+    "category": "Email",
+    "text": "I need help archiving old mail because my email storage is full.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_signature_1",
+    "group": "email_signature",
+    "category": "Email",
+    "text": "My email signature is missing when I reply from Outlook.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_signature_2",
+    "group": "email_signature",
+    "category": "Email",
+    "text": "The company logo is broken in my outgoing email signature.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_signature_3",
+    "group": "email_signature",
+    "category": "Email",
+    "text": "Please help configure the automatic signature in my mail client.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_autoreply_1",
+    "group": "email_autoreply",
+    "category": "Email",
+    "text": "The vacation automatic reply is not being sent from my mailbox.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_autoreply_2",
+    "group": "email_autoreply",
+    "category": "Email",
+    "text": "Please help set an out of office message for my email account.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_autoreply_3",
+    "group": "email_autoreply",
+    "category": "Email",
+    "text": "People who email me are not receiving my configured away response.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_mail_rules_1",
+    "group": "email_mail_rules",
+    "category": "Email",
+    "text": "An Outlook inbox rule is moving customer mail into the wrong folder.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_mail_rules_2",
+    "group": "email_mail_rules",
+    "category": "Email",
+    "text": "My email filtering rule stopped sorting incoming messages.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_mail_rules_3",
+    "group": "email_mail_rules",
+    "category": "Email",
+    "text": "Mail rules are deleting messages that should stay in my inbox.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_calendar_invite_1",
+    "group": "email_calendar_invite",
+    "category": "Email",
+    "text": "Outlook meeting invitations arrive but do not appear on my calendar.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_calendar_invite_2",
+    "group": "email_calendar_invite",
+    "category": "Email",
+    "text": "Calendar invitations sent by email are showing the wrong meeting time.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_calendar_invite_3",
+    "group": "email_calendar_invite",
+    "category": "Email",
+    "text": "The mail calendar sends duplicate meeting invitations to attendees.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_duplicate_mail_1",
+    "group": "email_duplicate_mail",
+    "category": "Email",
+    "text": "My inbox receives two copies of every incoming email.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_duplicate_mail_2",
+    "group": "email_duplicate_mail",
+    "category": "Email",
+    "text": "The mail client downloads the same messages repeatedly.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_duplicate_mail_3",
+    "group": "email_duplicate_mail",
+    "category": "Email",
+    "text": "Duplicate emails appear whenever Outlook synchronizes the inbox.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_mail_search_1",
+    "group": "email_mail_search",
+    "category": "Email",
+    "text": "Searching my Outlook mailbox does not find older emails.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_mail_search_2",
+    "group": "email_mail_search",
+    "category": "Email",
+    "text": "Email search returns no results for messages I can see in a folder.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_mail_search_3",
+    "group": "email_mail_search",
+    "category": "Email",
+    "text": "The mail search index seems incomplete after moving my mailbox.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_delayed_delivery_1",
+    "group": "email_delayed_delivery",
+    "category": "Email",
+    "text": "Customer emails arrive several hours after they were sent.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_delayed_delivery_2",
+    "group": "email_delayed_delivery",
+    "category": "Email",
+    "text": "Incoming mail delivery is unusually delayed for our department.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_delayed_delivery_3",
+    "group": "email_delayed_delivery",
+    "category": "Email",
+    "text": "Messages sit on the mail server before appearing in the inbox.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_attachment_missing_1",
+    "group": "email_attachment_missing",
+    "category": "Email",
+    "text": "The PDF attached to an incoming email is missing in Outlook.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_attachment_missing_2",
+    "group": "email_attachment_missing",
+    "category": "Email",
+    "text": "Email arrives without the attachment that the sender included.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_attachment_missing_3",
+    "group": "email_attachment_missing",
+    "category": "Email",
+    "text": "Attachments in received messages appear as empty files in my mailbox.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_sent_folder_1",
+    "group": "email_sent_folder",
+    "category": "Email",
+    "text": "Emails are delivered but no copy is saved in my Sent folder.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_sent_folder_2",
+    "group": "email_sent_folder",
+    "category": "Email",
+    "text": "My sent email history has stopped updating in the mail client.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_sent_folder_3",
+    "group": "email_sent_folder",
+    "category": "Email",
+    "text": "Outgoing messages disappear from the Sent Items folder after delivery.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_contact_list_1",
+    "group": "email_contact_list",
+    "category": "Email",
+    "text": "The address book in Outlook shows outdated email contacts.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_contact_list_2",
+    "group": "email_contact_list",
+    "category": "Email",
+    "text": "My mail client cannot find colleagues in the company address list.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_contact_list_3",
+    "group": "email_contact_list",
+    "category": "Email",
+    "text": "Email autocomplete suggests the wrong address for a saved contact.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_forwarding_1",
+    "group": "email_forwarding",
+    "category": "Email",
+    "text": "Mailbox forwarding is sending incoming email to the wrong address.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_forwarding_2",
+    "group": "email_forwarding",
+    "category": "Email",
+    "text": "My configured email forwarding rule does not deliver messages onward.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_forwarding_3",
+    "group": "email_forwarding",
+    "category": "Email",
+    "text": "Please help correct the automatic forwarding destination in my mailbox.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_mail_format_1",
+    "group": "email_mail_format",
+    "category": "Email",
+    "text": "Emails sent from Outlook lose their formatting and show garbled characters.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_mail_format_2",
+    "group": "email_mail_format",
+    "category": "Email",
+    "text": "The body of incoming email is unreadable due to a character encoding issue.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "email_mail_format_3",
+    "group": "email_mail_format",
+    "category": "Email",
+    "text": "My mail client displays blank email bodies although the subject is visible.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_wifi_connect_1",
+    "group": "network_wifi_connect",
+    "category": "Network",
+    "text": "My laptop cannot connect to the office Wi-Fi network.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_wifi_connect_2",
+    "group": "network_wifi_connect",
+    "category": "Network",
+    "text": "The wireless connection fails even though the office WiFi signal is visible.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_wifi_connect_3",
+    "group": "network_wifi_connect",
+    "category": "Network",
+    "text": "I select the office wireless network but it never establishes a connection.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_wifi_drop_1",
+    "group": "network_wifi_drop",
+    "category": "Network",
+    "text": "The office Wi-Fi disconnects every few minutes during meetings.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_wifi_drop_2",
+    "group": "network_wifi_drop",
+    "category": "Network",
+    "text": "Wireless connectivity keeps dropping and reconnecting throughout the day.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_wifi_drop_3",
+    "group": "network_wifi_drop",
+    "category": "Network",
+    "text": "My laptop repeatedly loses its WiFi connection while I am working.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_ethernet_link_1",
+    "group": "network_ethernet_link",
+    "category": "Network",
+    "text": "The wired Ethernet connection shows a disconnected network cable.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_ethernet_link_2",
+    "group": "network_ethernet_link",
+    "category": "Network",
+    "text": "My desktop has no LAN connection although the cable is plugged in.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_ethernet_link_3",
+    "group": "network_ethernet_link",
+    "category": "Network",
+    "text": "The network adapter does not detect a link on the Ethernet cable.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_internet_outage_1",
+    "group": "network_internet_outage",
+    "category": "Network",
+    "text": "No one in our office can reach the internet through the router.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_internet_outage_2",
+    "group": "network_internet_outage",
+    "category": "Network",
+    "text": "All websites are unreachable on every computer in this branch.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_internet_outage_3",
+    "group": "network_internet_outage",
+    "category": "Network",
+    "text": "The office internet connection went down for the whole team.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_dns_failure_1",
+    "group": "network_dns_failure",
+    "category": "Network",
+    "text": "Websites fail to load with a DNS lookup error.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_dns_failure_2",
+    "group": "network_dns_failure",
+    "category": "Network",
+    "text": "Internet access by IP works but domain names do not resolve.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_dns_failure_3",
+    "group": "network_dns_failure",
+    "category": "Network",
+    "text": "The network reports that the DNS server is not responding.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_dhcp_address_1",
+    "group": "network_dhcp_address",
+    "category": "Network",
+    "text": "My computer is not receiving an IP address from DHCP.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_dhcp_address_2",
+    "group": "network_dhcp_address",
+    "category": "Network",
+    "text": "The LAN adapter has a self assigned address and cannot reach the gateway.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_dhcp_address_3",
+    "group": "network_dhcp_address",
+    "category": "Network",
+    "text": "Automatic network address assignment fails when I plug into the office LAN.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_ip_conflict_1",
+    "group": "network_ip_conflict",
+    "category": "Network",
+    "text": "Windows reports an IP address conflict on the office network.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_ip_conflict_2",
+    "group": "network_ip_conflict",
+    "category": "Network",
+    "text": "Two devices appear to be using the same IP and losing connectivity.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_ip_conflict_3",
+    "group": "network_ip_conflict",
+    "category": "Network",
+    "text": "My network stops working with a duplicate IP address warning.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_vpn_disconnect_1",
+    "group": "network_vpn_disconnect",
+    "category": "Network",
+    "text": "The VPN tunnel connects successfully then drops after a few minutes.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_vpn_disconnect_2",
+    "group": "network_vpn_disconnect",
+    "category": "Network",
+    "text": "My remote network connection through VPN keeps timing out.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_vpn_disconnect_3",
+    "group": "network_vpn_disconnect",
+    "category": "Network",
+    "text": "The VPN tunnel is unstable even after a successful sign in.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_vpn_routing_1",
+    "group": "network_vpn_routing",
+    "category": "Network",
+    "text": "VPN connects but internal server addresses are unreachable.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_vpn_routing_2",
+    "group": "network_vpn_routing",
+    "category": "Network",
+    "text": "I can establish the remote VPN tunnel but cannot reach office subnets.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_vpn_routing_3",
+    "group": "network_vpn_routing",
+    "category": "Network",
+    "text": "Traffic to the internal network is not routed after the VPN connects.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_packet_loss_1",
+    "group": "network_packet_loss",
+    "category": "Network",
+    "text": "Network packet loss is causing voice calls to cut out.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_packet_loss_2",
+    "group": "network_packet_loss",
+    "category": "Network",
+    "text": "Ping tests lose many packets between my workstation and the gateway.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_packet_loss_3",
+    "group": "network_packet_loss",
+    "category": "Network",
+    "text": "The LAN has intermittent packet drops and unstable latency.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_slow_bandwidth_1",
+    "group": "network_slow_bandwidth",
+    "category": "Network",
+    "text": "Internet downloads are very slow across the entire office network.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_slow_bandwidth_2",
+    "group": "network_slow_bandwidth",
+    "category": "Network",
+    "text": "The network connection has unusually low bandwidth for every workstation.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_slow_bandwidth_3",
+    "group": "network_slow_bandwidth",
+    "category": "Network",
+    "text": "All internet traffic is slow despite a strong wired link.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_proxy_error_1",
+    "group": "network_proxy_error",
+    "category": "Network",
+    "text": "Web browsing fails because the configured network proxy cannot be reached.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_proxy_error_2",
+    "group": "network_proxy_error",
+    "category": "Network",
+    "text": "The browser reports a proxy server connection error on the office LAN.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_proxy_error_3",
+    "group": "network_proxy_error",
+    "category": "Network",
+    "text": "Internet access stops whenever the corporate proxy settings are enabled.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_firewall_path_1",
+    "group": "network_firewall_path",
+    "category": "Network",
+    "text": "A required service port is blocked on the network firewall.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_firewall_path_2",
+    "group": "network_firewall_path",
+    "category": "Network",
+    "text": "The firewall appears to block traffic to our application server.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_firewall_path_3",
+    "group": "network_firewall_path",
+    "category": "Network",
+    "text": "Network traffic cannot reach the service after a firewall rule change.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_wifi_coverage_1",
+    "group": "network_wifi_coverage",
+    "category": "Network",
+    "text": "The wireless signal is very weak in the meeting room.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_wifi_coverage_2",
+    "group": "network_wifi_coverage",
+    "category": "Network",
+    "text": "Our far office desks have almost no Wi-Fi coverage.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_wifi_coverage_3",
+    "group": "network_wifi_coverage",
+    "category": "Network",
+    "text": "The access point does not provide usable wireless signal in this area.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_network_switch_1",
+    "group": "network_network_switch",
+    "category": "Network",
+    "text": "Several desks lost network access after a switch port failed.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_network_switch_2",
+    "group": "network_network_switch",
+    "category": "Network",
+    "text": "The office network switch is not forwarding traffic on one set of ports.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_network_switch_3",
+    "group": "network_network_switch",
+    "category": "Network",
+    "text": "A faulty switch connection has disconnected this floor from the LAN.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_gateway_1",
+    "group": "network_gateway",
+    "category": "Network",
+    "text": "My workstation can reach local devices but not the network gateway.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_gateway_2",
+    "group": "network_gateway",
+    "category": "Network",
+    "text": "The default gateway is unavailable on the Ethernet connection.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_gateway_3",
+    "group": "network_gateway",
+    "category": "Network",
+    "text": "Network diagnostics report that the router gateway cannot be reached.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_server_reachability_1",
+    "group": "network_server_reachability",
+    "category": "Network",
+    "text": "The internal server does not respond to ping from this branch.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_server_reachability_2",
+    "group": "network_server_reachability",
+    "category": "Network",
+    "text": "There is no network route from our subnet to the file server.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_server_reachability_3",
+    "group": "network_server_reachability",
+    "category": "Network",
+    "text": "Connectivity to the data center server network has failed.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_network_negotiation_1",
+    "group": "network_network_negotiation",
+    "category": "Network",
+    "text": "The Ethernet link negotiates at a very low network speed.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_network_negotiation_2",
+    "group": "network_network_negotiation",
+    "category": "Network",
+    "text": "My LAN adapter keeps switching between connected and disconnected states.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "network_network_negotiation_3",
+    "group": "network_network_negotiation",
+    "category": "Network",
+    "text": "The wired network link has a duplex mismatch and many transmission errors.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_no_power_1",
+    "group": "hardware_no_power",
+    "category": "Hardware",
+    "text": "The desktop computer will not power on when I press its power button.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_no_power_2",
+    "group": "hardware_no_power",
+    "category": "Hardware",
+    "text": "My laptop shows no power light and does not turn on.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_no_power_3",
+    "group": "hardware_no_power",
+    "category": "Hardware",
+    "text": "The workstation is completely dead even with its power cable attached.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_battery_1",
+    "group": "hardware_battery",
+    "category": "Hardware",
+    "text": "My laptop battery drains in minutes after unplugging the charger.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_battery_2",
+    "group": "hardware_battery",
+    "category": "Hardware",
+    "text": "The laptop battery is swollen and the case is lifting.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_battery_3",
+    "group": "hardware_battery",
+    "category": "Hardware",
+    "text": "The notebook battery will not hold a charge anymore.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_charger_1",
+    "group": "hardware_charger",
+    "category": "Hardware",
+    "text": "The laptop charging socket is loose and charging stops when it moves.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_charger_2",
+    "group": "hardware_charger",
+    "category": "Hardware",
+    "text": "My notebook charger is broken and the laptop cannot charge.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_charger_3",
+    "group": "hardware_charger",
+    "category": "Hardware",
+    "text": "The power adapter gets no charging response from the laptop.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_keyboard_1",
+    "group": "hardware_keyboard",
+    "category": "Hardware",
+    "text": "Several keys on my physical keyboard no longer respond.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_keyboard_2",
+    "group": "hardware_keyboard",
+    "category": "Hardware",
+    "text": "The laptop keyboard types repeated characters from a stuck key.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_keyboard_3",
+    "group": "hardware_keyboard",
+    "category": "Hardware",
+    "text": "My USB keyboard has stopped registering any key presses.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_mouse_1",
+    "group": "hardware_mouse",
+    "category": "Hardware",
+    "text": "The mouse left button is physically stuck and cannot click.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_mouse_2",
+    "group": "hardware_mouse",
+    "category": "Hardware",
+    "text": "My wired mouse sensor does not move the pointer.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_mouse_3",
+    "group": "hardware_mouse",
+    "category": "Hardware",
+    "text": "The mouse scroll wheel is broken and needs replacement.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_monitor_1",
+    "group": "hardware_monitor",
+    "category": "Hardware",
+    "text": "The external monitor stays black although the computer is powered on.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_monitor_2",
+    "group": "hardware_monitor",
+    "category": "Hardware",
+    "text": "My monitor has a broken display with colored vertical lines.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_monitor_3",
+    "group": "hardware_monitor",
+    "category": "Hardware",
+    "text": "The workstation screen flickers even before Windows starts.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_overheating_1",
+    "group": "hardware_overheating",
+    "category": "Hardware",
+    "text": "The laptop becomes very hot and shuts itself down.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_overheating_2",
+    "group": "hardware_overheating",
+    "category": "Hardware",
+    "text": "My desktop cooling fan is rattling and the case is overheating.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_overheating_3",
+    "group": "hardware_overheating",
+    "category": "Hardware",
+    "text": "The computer temperature rises rapidly because the cooling fan stopped.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_drive_failure_1",
+    "group": "hardware_drive_failure",
+    "category": "Hardware",
+    "text": "The computer hard drive makes clicking noises and is not detected.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_drive_failure_2",
+    "group": "hardware_drive_failure",
+    "category": "Hardware",
+    "text": "The SSD reports a hardware failure during the boot diagnostic.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_drive_failure_3",
+    "group": "hardware_drive_failure",
+    "category": "Hardware",
+    "text": "My workstation disk has failed and the BIOS cannot find it.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_ram_fault_1",
+    "group": "hardware_ram_fault",
+    "category": "Hardware",
+    "text": "A hardware memory diagnostic reports faulty RAM in my desktop.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_ram_fault_2",
+    "group": "hardware_ram_fault",
+    "category": "Hardware",
+    "text": "The computer beeps at startup and identifies a memory module fault.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_ram_fault_3",
+    "group": "hardware_ram_fault",
+    "category": "Hardware",
+    "text": "One installed RAM stick is not detected by the motherboard.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_hinge_1",
+    "group": "hardware_hinge",
+    "category": "Hardware",
+    "text": "The laptop screen hinge is broken and the lid will not stay upright.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_hinge_2",
+    "group": "hardware_hinge",
+    "category": "Hardware",
+    "text": "My notebook hinge has separated from the case.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_hinge_3",
+    "group": "hardware_hinge",
+    "category": "Hardware",
+    "text": "The laptop enclosure is cracked near the display hinge.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_usb_port_1",
+    "group": "hardware_usb_port",
+    "category": "Hardware",
+    "text": "The physical USB port is loose and cannot hold any connector.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_usb_port_2",
+    "group": "hardware_usb_port",
+    "category": "Hardware",
+    "text": "Several USB sockets on my computer no longer provide power.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_usb_port_3",
+    "group": "hardware_usb_port",
+    "category": "Hardware",
+    "text": "A damaged USB port on the laptop needs repair.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_webcam_1",
+    "group": "hardware_webcam",
+    "category": "Hardware",
+    "text": "The built in webcam has a cracked lens and a dark image.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_webcam_2",
+    "group": "hardware_webcam",
+    "category": "Hardware",
+    "text": "My USB webcam is not detected on any computer I connect it to.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_webcam_3",
+    "group": "hardware_webcam",
+    "category": "Hardware",
+    "text": "The camera hardware fails its device diagnostic test.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_microphone_1",
+    "group": "hardware_microphone",
+    "category": "Hardware",
+    "text": "My headset microphone cable is damaged and no sound is recorded.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_microphone_2",
+    "group": "hardware_microphone",
+    "category": "Hardware",
+    "text": "The external microphone hardware is broken on multiple computers.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_microphone_3",
+    "group": "hardware_microphone",
+    "category": "Hardware",
+    "text": "The physical microphone socket is loose and cuts out sound.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_speaker_1",
+    "group": "hardware_speaker",
+    "category": "Hardware",
+    "text": "The laptop speaker crackles even when the volume is low.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_speaker_2",
+    "group": "hardware_speaker",
+    "category": "Hardware",
+    "text": "One external speaker has stopped producing any audio.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_speaker_3",
+    "group": "hardware_speaker",
+    "category": "Hardware",
+    "text": "The headset has a broken earpiece and needs a hardware replacement.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_ups_1",
+    "group": "hardware_ups",
+    "category": "Hardware",
+    "text": "The UPS battery fails immediately when mains power goes out.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_ups_2",
+    "group": "hardware_ups",
+    "category": "Hardware",
+    "text": "The backup power unit keeps beeping and cannot support the computer.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_ups_3",
+    "group": "hardware_ups",
+    "category": "Hardware",
+    "text": "Our desktop UPS will not charge its internal battery.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_dock_1",
+    "group": "hardware_dock",
+    "category": "Hardware",
+    "text": "The docking station has a broken connector and no power indicator.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_dock_2",
+    "group": "hardware_dock",
+    "category": "Hardware",
+    "text": "My laptop dock does not detect any attached hardware on multiple laptops.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_dock_3",
+    "group": "hardware_dock",
+    "category": "Hardware",
+    "text": "The physical docking connector is damaged and needs replacement.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_power_supply_1",
+    "group": "hardware_power_supply",
+    "category": "Hardware",
+    "text": "The desktop power supply makes a loud electrical buzzing sound.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_power_supply_2",
+    "group": "hardware_power_supply",
+    "category": "Hardware",
+    "text": "The computer power supply fan has stopped and the unit smells burnt.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_power_supply_3",
+    "group": "hardware_power_supply",
+    "category": "Hardware",
+    "text": "A failed power supply prevents the workstation from receiving power.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_cmos_1",
+    "group": "hardware_cmos",
+    "category": "Hardware",
+    "text": "The computer loses its BIOS date whenever power is disconnected.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_cmos_2",
+    "group": "hardware_cmos",
+    "category": "Hardware",
+    "text": "The motherboard reports a CMOS battery failure during startup.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "hardware_cmos_3",
+    "group": "hardware_cmos",
+    "category": "Hardware",
+    "text": "Hardware settings reset after shutdown because the CMOS battery is dead.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_excel_crash_1",
+    "group": "software_excel_crash",
+    "category": "Software",
+    "text": "Excel crashes whenever I open the monthly reporting workbook.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_excel_crash_2",
+    "group": "software_excel_crash",
+    "category": "Software",
+    "text": "The spreadsheet application closes unexpectedly while calculating formulas.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_excel_crash_3",
+    "group": "software_excel_crash",
+    "category": "Software",
+    "text": "Microsoft Excel becomes unresponsive when loading a spreadsheet file.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_word_crash_1",
+    "group": "software_word_crash",
+    "category": "Software",
+    "text": "Word stops responding while opening a document.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_word_crash_2",
+    "group": "software_word_crash",
+    "category": "Software",
+    "text": "The word processing application crashes after I paste formatted text.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_word_crash_3",
+    "group": "software_word_crash",
+    "category": "Software",
+    "text": "Microsoft Word closes unexpectedly when I save a document.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_pdf_reader_1",
+    "group": "software_pdf_reader",
+    "category": "Software",
+    "text": "My PDF reader crashes on opening an otherwise valid document.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_pdf_reader_2",
+    "group": "software_pdf_reader",
+    "category": "Software",
+    "text": "The installed PDF application shows blank pages in every file.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_pdf_reader_3",
+    "group": "software_pdf_reader",
+    "category": "Software",
+    "text": "PDF files open in the wrong program after a software update.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_app_install_1",
+    "group": "software_app_install",
+    "category": "Software",
+    "text": "The installer for our approved desktop application fails midway.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_app_install_2",
+    "group": "software_app_install",
+    "category": "Software",
+    "text": "A software installation stops with a missing dependency error.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_app_install_3",
+    "group": "software_app_install",
+    "category": "Software",
+    "text": "The setup wizard rolls back the application installation every time.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_app_update_1",
+    "group": "software_app_update",
+    "category": "Software",
+    "text": "The installed application cannot complete its software update.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_app_update_2",
+    "group": "software_app_update",
+    "category": "Software",
+    "text": "An application patch fails and the program stays on the old version.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_app_update_3",
+    "group": "software_app_update",
+    "category": "Software",
+    "text": "The software updater repeatedly downloads but never installs the update.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_windows_update_1",
+    "group": "software_windows_update",
+    "category": "Software",
+    "text": "Windows update is stuck and keeps reverting its installation.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_windows_update_2",
+    "group": "software_windows_update",
+    "category": "Software",
+    "text": "The operating system update fails with the same error after each restart.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_windows_update_3",
+    "group": "software_windows_update",
+    "category": "Software",
+    "text": "My Windows computer cannot finish installing the latest system updates.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_browser_crash_1",
+    "group": "software_browser_crash",
+    "category": "Software",
+    "text": "The web browser crashes when I open several tabs.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_browser_crash_2",
+    "group": "software_browser_crash",
+    "category": "Software",
+    "text": "The browser application freezes even when opening a local page.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_browser_crash_3",
+    "group": "software_browser_crash",
+    "category": "Software",
+    "text": "My browser closes unexpectedly after its latest software update.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_browser_extension_1",
+    "group": "software_browser_extension",
+    "category": "Software",
+    "text": "An installed browser extension is breaking the page layout.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_browser_extension_2",
+    "group": "software_browser_extension",
+    "category": "Software",
+    "text": "The browser add-on crashes the application whenever it starts.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_browser_extension_3",
+    "group": "software_browser_extension",
+    "category": "Software",
+    "text": "I need help removing a malfunctioning extension from my browser.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_erp_runtime_1",
+    "group": "software_erp_runtime",
+    "category": "Software",
+    "text": "The ERP application displays a runtime exception when generating a report.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_erp_runtime_2",
+    "group": "software_erp_runtime",
+    "category": "Software",
+    "text": "Our desktop ERP program crashes after selecting the inventory module.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_erp_runtime_3",
+    "group": "software_erp_runtime",
+    "category": "Software",
+    "text": "The business application fails with an unhandled software error.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_video_app_1",
+    "group": "software_video_app",
+    "category": "Software",
+    "text": "The meeting application crashes as soon as I launch it.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_video_app_2",
+    "group": "software_video_app",
+    "category": "Software",
+    "text": "The video conference software will not start after updating.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_video_app_3",
+    "group": "software_video_app",
+    "category": "Software",
+    "text": "The installed meeting client freezes before I can join a session.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_os_boot_1",
+    "group": "software_os_boot",
+    "category": "Software",
+    "text": "Windows is stuck in an automatic repair loop after a system update.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_os_boot_2",
+    "group": "software_os_boot",
+    "category": "Software",
+    "text": "The operating system fails to boot even though the disk passes diagnostics.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_os_boot_3",
+    "group": "software_os_boot",
+    "category": "Software",
+    "text": "A damaged Windows system file prevents the desktop from loading.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_app_slow_1",
+    "group": "software_app_slow",
+    "category": "Software",
+    "text": "One desktop application is very slow while other programs work normally.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_app_slow_2",
+    "group": "software_app_slow",
+    "category": "Software",
+    "text": "The accounting software freezes for minutes when opening a report.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_app_slow_3",
+    "group": "software_app_slow",
+    "category": "Software",
+    "text": "A software process consumes all CPU whenever the application launches.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_file_association_1",
+    "group": "software_file_association",
+    "category": "Software",
+    "text": "Spreadsheet files open in the wrong application by default.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_file_association_2",
+    "group": "software_file_association",
+    "category": "Software",
+    "text": "Windows has lost the default program association for PDF documents.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_file_association_3",
+    "group": "software_file_association",
+    "category": "Software",
+    "text": "Double clicking a document starts an unrelated installed program.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_license_activation_1",
+    "group": "software_license_activation",
+    "category": "Software",
+    "text": "An installed software license cannot complete product activation.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_license_activation_2",
+    "group": "software_license_activation",
+    "category": "Software",
+    "text": "The desktop application reports an expired license despite our valid purchase.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_license_activation_3",
+    "group": "software_license_activation",
+    "category": "Software",
+    "text": "The program activation wizard rejects the assigned license key.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_backup_app_1",
+    "group": "software_backup_app",
+    "category": "Software",
+    "text": "The backup software crashes before its scheduled job can start.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_backup_app_2",
+    "group": "software_backup_app",
+    "category": "Software",
+    "text": "The installed backup application reports a corrupt configuration file.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_backup_app_3",
+    "group": "software_backup_app",
+    "category": "Software",
+    "text": "A backup client update broke the scheduled backup process.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_corrupt_document_1",
+    "group": "software_corrupt_document",
+    "category": "Software",
+    "text": "A spreadsheet file reports corruption and will not open in Excel.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_corrupt_document_2",
+    "group": "software_corrupt_document",
+    "category": "Software",
+    "text": "The office application cannot repair this damaged document file.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_corrupt_document_3",
+    "group": "software_corrupt_document",
+    "category": "Software",
+    "text": "A saved presentation is corrupted and the program refuses to load it.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_app_uninstall_1",
+    "group": "software_app_uninstall",
+    "category": "Software",
+    "text": "The application uninstaller fails and leaves the program installed.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_app_uninstall_2",
+    "group": "software_app_uninstall",
+    "category": "Software",
+    "text": "I cannot remove the obsolete software through Windows installed apps.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_app_uninstall_3",
+    "group": "software_app_uninstall",
+    "category": "Software",
+    "text": "Uninstalling the program stops with an installer service error.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_antivirus_update_1",
+    "group": "software_antivirus_update",
+    "category": "Software",
+    "text": "The antivirus software cannot update its local definition database.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_antivirus_update_2",
+    "group": "software_antivirus_update",
+    "category": "Software",
+    "text": "The installed security application crashes during a scheduled scan.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "software_antivirus_update_3",
+    "group": "software_antivirus_update",
+    "category": "Software",
+    "text": "An antivirus program update failed and the software will not restart.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_paper_jam_1",
+    "group": "printer_paper_jam",
+    "category": "Printer",
+    "text": "The office printer reports a paper jam and cannot continue printing.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_paper_jam_2",
+    "group": "printer_paper_jam",
+    "category": "Printer",
+    "text": "Sheets are stuck inside the printer paper path.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_paper_jam_3",
+    "group": "printer_paper_jam",
+    "category": "Printer",
+    "text": "The printer jams paper on every print job.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_queue_stuck_1",
+    "group": "printer_queue_stuck",
+    "category": "Printer",
+    "text": "Print jobs are stuck in the printer queue and none will complete.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_queue_stuck_2",
+    "group": "printer_queue_stuck",
+    "category": "Printer",
+    "text": "The printer spooler keeps pending documents instead of printing them.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_queue_stuck_3",
+    "group": "printer_queue_stuck",
+    "category": "Printer",
+    "text": "The print queue will not clear after a failed printing job.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_offline_1",
+    "group": "printer_offline",
+    "category": "Printer",
+    "text": "The office printer shows offline although it is switched on.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_offline_2",
+    "group": "printer_offline",
+    "category": "Printer",
+    "text": "My computer cannot print because the printer status stays unavailable.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_offline_3",
+    "group": "printer_offline",
+    "category": "Printer",
+    "text": "The network printer appears offline in the printing dialog.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_faded_print_1",
+    "group": "printer_faded_print",
+    "category": "Printer",
+    "text": "The laser printer produces very faint text on every page.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_faded_print_2",
+    "group": "printer_faded_print",
+    "category": "Printer",
+    "text": "Printed documents have faded patches although the source file is clear.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_faded_print_3",
+    "group": "printer_faded_print",
+    "category": "Printer",
+    "text": "The printer output is too light to read properly.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_low_toner_1",
+    "group": "printer_low_toner",
+    "category": "Printer",
+    "text": "The printer toner cartridge is empty and needs replacement.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_low_toner_2",
+    "group": "printer_low_toner",
+    "category": "Printer",
+    "text": "The office printer displays a low toner warning.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_low_toner_3",
+    "group": "printer_low_toner",
+    "category": "Printer",
+    "text": "Printing has stopped because the black ink cartridge is exhausted.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_driver_install_1",
+    "group": "printer_driver_install",
+    "category": "Printer",
+    "text": "The printer driver installation fails on my workstation.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_driver_install_2",
+    "group": "printer_driver_install",
+    "category": "Printer",
+    "text": "I need the correct print driver for the office printer.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_driver_install_3",
+    "group": "printer_driver_install",
+    "category": "Printer",
+    "text": "Windows cannot install the selected printer driver package.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_duplex_1",
+    "group": "printer_duplex",
+    "category": "Printer",
+    "text": "The printer will not print on both sides even with duplex enabled.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_duplex_2",
+    "group": "printer_duplex",
+    "category": "Printer",
+    "text": "Double sided printing produces pages in the wrong order.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_duplex_3",
+    "group": "printer_duplex",
+    "category": "Printer",
+    "text": "The printer duplex unit is failing to turn the paper.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_wrong_color_1",
+    "group": "printer_wrong_color",
+    "category": "Printer",
+    "text": "The color printer output has a strong pink tint.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_wrong_color_2",
+    "group": "printer_wrong_color",
+    "category": "Printer",
+    "text": "Printed colors do not match the document on the screen.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_wrong_color_3",
+    "group": "printer_wrong_color",
+    "category": "Printer",
+    "text": "The printer is missing one color from every page.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_blank_pages_1",
+    "group": "printer_blank_pages",
+    "category": "Printer",
+    "text": "The printer feeds paper but produces completely blank pages.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_blank_pages_2",
+    "group": "printer_blank_pages",
+    "category": "Printer",
+    "text": "Every printed document comes out without text or images.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_blank_pages_3",
+    "group": "printer_blank_pages",
+    "category": "Printer",
+    "text": "The printer completes the job but there is no ink on the page.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_paper_tray_1",
+    "group": "printer_paper_tray",
+    "category": "Printer",
+    "text": "The printer cannot detect paper in its loaded input tray.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_paper_tray_2",
+    "group": "printer_paper_tray",
+    "category": "Printer",
+    "text": "Printing stops with an empty tray message even though paper is present.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_paper_tray_3",
+    "group": "printer_paper_tray",
+    "category": "Printer",
+    "text": "The paper pickup rollers in the printer are not feeding sheets.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_print_alignment_1",
+    "group": "printer_print_alignment",
+    "category": "Printer",
+    "text": "Text is misaligned on documents produced by the printer.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_print_alignment_2",
+    "group": "printer_print_alignment",
+    "category": "Printer",
+    "text": "The printer places content partly outside the page margins.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_print_alignment_3",
+    "group": "printer_print_alignment",
+    "category": "Printer",
+    "text": "Printed pages have shifted lines and poor alignment.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_scanner_feed_1",
+    "group": "printer_scanner_feed",
+    "category": "Printer",
+    "text": "The multifunction printer scanner feeder pulls several pages at once.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_scanner_feed_2",
+    "group": "printer_scanner_feed",
+    "category": "Printer",
+    "text": "The scanner on our office printer jams while copying documents.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_scanner_feed_3",
+    "group": "printer_scanner_feed",
+    "category": "Printer",
+    "text": "The printer document feeder does not accept pages for scanning.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_print_size_1",
+    "group": "printer_print_size",
+    "category": "Printer",
+    "text": "The printer uses the wrong paper size for our documents.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_print_size_2",
+    "group": "printer_print_size",
+    "category": "Printer",
+    "text": "A4 print jobs are being sent to the letter paper tray.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_print_size_3",
+    "group": "printer_print_size",
+    "category": "Printer",
+    "text": "The printer scales every document too small on the page.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_discovery_1",
+    "group": "printer_discovery",
+    "category": "Printer",
+    "text": "My workstation cannot discover the shared office printer.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_discovery_2",
+    "group": "printer_discovery",
+    "category": "Printer",
+    "text": "The printer is missing from the available printing devices list.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_discovery_3",
+    "group": "printer_discovery",
+    "category": "Printer",
+    "text": "Adding the network printer fails during device discovery.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_print_streaks_1",
+    "group": "printer_print_streaks",
+    "category": "Printer",
+    "text": "The printer leaves dark vertical streaks on every sheet.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_print_streaks_2",
+    "group": "printer_print_streaks",
+    "category": "Printer",
+    "text": "Printed pages have repeated black spots and smudges.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_print_streaks_3",
+    "group": "printer_print_streaks",
+    "category": "Printer",
+    "text": "The laser printer produces lines across otherwise clean documents.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_print_noise_1",
+    "group": "printer_print_noise",
+    "category": "Printer",
+    "text": "The office printer makes a grinding noise when it feeds paper.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_print_noise_2",
+    "group": "printer_print_noise",
+    "category": "Printer",
+    "text": "The printer rollers make a loud clicking sound during printing.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_print_noise_3",
+    "group": "printer_print_noise",
+    "category": "Printer",
+    "text": "A mechanical noise comes from the printer whenever a job starts.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_print_slow_1",
+    "group": "printer_print_slow",
+    "category": "Printer",
+    "text": "The printer takes several minutes to produce each page.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_print_slow_2",
+    "group": "printer_print_slow",
+    "category": "Printer",
+    "text": "All print jobs are unusually slow on the shared printer.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_print_slow_3",
+    "group": "printer_print_slow",
+    "category": "Printer",
+    "text": "The printer pauses for a long time between every printed sheet.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_scan_output_1",
+    "group": "printer_scan_output",
+    "category": "Printer",
+    "text": "The scanner on our multifunction printer produces black images.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_scan_output_2",
+    "group": "printer_scan_output",
+    "category": "Printer",
+    "text": "Scanned documents from the office printer are blurred and unreadable.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "printer_scan_output_3",
+    "group": "printer_scan_output",
+    "category": "Printer",
+    "text": "The printer scanning function saves blank images instead of the document.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_password_reset_1",
+    "group": "access_password_reset",
+    "category": "Access",
+    "text": "I forgot my account password and need a password reset.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_password_reset_2",
+    "group": "access_password_reset",
+    "category": "Access",
+    "text": "Please reset my login password so I can sign in again.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_password_reset_3",
+    "group": "access_password_reset",
+    "category": "Access",
+    "text": "My account password no longer works and I need help recovering access.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_account_locked_1",
+    "group": "access_account_locked",
+    "category": "Access",
+    "text": "My user account is locked after several failed login attempts.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_account_locked_2",
+    "group": "access_account_locked",
+    "category": "Access",
+    "text": "The sign in page says my account has been locked.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_account_locked_3",
+    "group": "access_account_locked",
+    "category": "Access",
+    "text": "Please unlock my employee login account.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_mfa_phone_1",
+    "group": "access_mfa_phone",
+    "category": "Access",
+    "text": "I changed my phone and cannot approve the authentication prompt.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_mfa_phone_2",
+    "group": "access_mfa_phone",
+    "category": "Access",
+    "text": "My account multi factor authentication is tied to an unavailable device.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_mfa_phone_3",
+    "group": "access_mfa_phone",
+    "category": "Access",
+    "text": "I cannot log in because the authenticator app was on my old phone.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_mfa_code_1",
+    "group": "access_mfa_code",
+    "category": "Access",
+    "text": "The verification code is not arriving when I try to sign in.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_mfa_code_2",
+    "group": "access_mfa_code",
+    "category": "Access",
+    "text": "My login one time password never reaches my registered device.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_mfa_code_3",
+    "group": "access_mfa_code",
+    "category": "Access",
+    "text": "Two factor authentication rejects the code during account sign in.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_folder_permission_1",
+    "group": "access_folder_permission",
+    "category": "Access",
+    "text": "I need permission to open the finance shared folder.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_folder_permission_2",
+    "group": "access_folder_permission",
+    "category": "Access",
+    "text": "The shared drive says access denied for my user account.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_folder_permission_3",
+    "group": "access_folder_permission",
+    "category": "Access",
+    "text": "Please grant my account read access to the department folder.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_erp_permission_1",
+    "group": "access_erp_permission",
+    "category": "Access",
+    "text": "My ERP login lacks permission to view the purchase report.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_erp_permission_2",
+    "group": "access_erp_permission",
+    "category": "Access",
+    "text": "Please assign the required application role to my user account.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_erp_permission_3",
+    "group": "access_erp_permission",
+    "category": "Access",
+    "text": "The business system shows permission denied for an authorized report.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_onboarding_account_1",
+    "group": "access_onboarding_account",
+    "category": "Access",
+    "text": "Please create a system login account for our incoming employee.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_onboarding_account_2",
+    "group": "access_onboarding_account",
+    "category": "Access",
+    "text": "A colleague needs an employee account to access company applications.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_onboarding_account_3",
+    "group": "access_onboarding_account",
+    "category": "Access",
+    "text": "We need to provision application access for a staff member joining the team.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_offboarding_account_1",
+    "group": "access_offboarding_account",
+    "category": "Access",
+    "text": "Please disable the system account of a departing employee.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_offboarding_account_2",
+    "group": "access_offboarding_account",
+    "category": "Access",
+    "text": "An employee has left and their login access must be revoked.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_offboarding_account_3",
+    "group": "access_offboarding_account",
+    "category": "Access",
+    "text": "Remove the departed staff member from application access groups.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_vpn_login_1",
+    "group": "access_vpn_login",
+    "category": "Access",
+    "text": "The VPN rejects my username and password during authentication.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_vpn_login_2",
+    "group": "access_vpn_login",
+    "category": "Access",
+    "text": "I need permission for my account to sign in to the corporate VPN.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_vpn_login_3",
+    "group": "access_vpn_login",
+    "category": "Access",
+    "text": "My remote access account is disabled and VPN login is denied.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_mail_login_1",
+    "group": "access_mail_login",
+    "category": "Access",
+    "text": "My email account password is rejected when I sign in.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_mail_login_2",
+    "group": "access_mail_login",
+    "category": "Access",
+    "text": "Please reset my mailbox login credentials.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_mail_login_3",
+    "group": "access_mail_login",
+    "category": "Access",
+    "text": "The webmail sign in page says my account is disabled.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_sso_login_1",
+    "group": "access_sso_login",
+    "category": "Access",
+    "text": "Single sign on denies my account when I access the company portal.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_sso_login_2",
+    "group": "access_sso_login",
+    "category": "Access",
+    "text": "My SSO session cannot authenticate to our business applications.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_sso_login_3",
+    "group": "access_sso_login",
+    "category": "Access",
+    "text": "The company identity provider rejects my employee sign in.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_password_expired_1",
+    "group": "access_password_expired",
+    "category": "Access",
+    "text": "My account password expired and I cannot complete the required change.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_password_expired_2",
+    "group": "access_password_expired",
+    "category": "Access",
+    "text": "Login is blocked until I update my expired password.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_password_expired_3",
+    "group": "access_password_expired",
+    "category": "Access",
+    "text": "The password expiration screen will not let me restore account access.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_group_membership_1",
+    "group": "access_group_membership",
+    "category": "Access",
+    "text": "Please add my account to the approved application access group.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_group_membership_2",
+    "group": "access_group_membership",
+    "category": "Access",
+    "text": "I moved departments and need the correct security group membership.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_group_membership_3",
+    "group": "access_group_membership",
+    "category": "Access",
+    "text": "My account is missing the group that grants access to team resources.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_admin_rights_1",
+    "group": "access_admin_rights",
+    "category": "Access",
+    "text": "I need approved administrator permission for a maintenance task.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_admin_rights_2",
+    "group": "access_admin_rights",
+    "category": "Access",
+    "text": "My user account does not have the required elevated privileges.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_admin_rights_3",
+    "group": "access_admin_rights",
+    "category": "Access",
+    "text": "Please review my request for temporary local administrator access.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_guest_account_1",
+    "group": "access_guest_account",
+    "category": "Access",
+    "text": "An external contractor needs an approved guest login account.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_guest_account_2",
+    "group": "access_guest_account",
+    "category": "Access",
+    "text": "Please provision restricted portal access for a visiting consultant.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_guest_account_3",
+    "group": "access_guest_account",
+    "category": "Access",
+    "text": "The invited guest cannot sign in to their company collaboration account.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_shared_mailbox_access_1",
+    "group": "access_shared_mailbox_access",
+    "category": "Access",
+    "text": "I need permission to open the department shared mailbox.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_shared_mailbox_access_2",
+    "group": "access_shared_mailbox_access",
+    "category": "Access",
+    "text": "Please grant my account send as rights for the shared email address.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_shared_mailbox_access_3",
+    "group": "access_shared_mailbox_access",
+    "category": "Access",
+    "text": "Access is denied when my account tries to open the team mailbox.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_disabled_account_1",
+    "group": "access_disabled_account",
+    "category": "Access",
+    "text": "My employee account was disabled and now all sign in attempts fail.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_disabled_account_2",
+    "group": "access_disabled_account",
+    "category": "Access",
+    "text": "The identity service reports that my user account is inactive.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_disabled_account_3",
+    "group": "access_disabled_account",
+    "category": "Access",
+    "text": "Please review why my company login access has been suspended.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_role_change_1",
+    "group": "access_role_change",
+    "category": "Access",
+    "text": "My job role changed and I need different application permissions.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_role_change_2",
+    "group": "access_role_change",
+    "category": "Access",
+    "text": "Please remove my old approval rights and assign the approved role.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  },
+  {
+    "id": "access_role_change_3",
+    "group": "access_role_change",
+    "category": "Access",
+    "text": "My account has the wrong access level for my current responsibilities.",
+    "source": "project_authored_synthetic_v1",
+    "language": "en"
+  }
+]

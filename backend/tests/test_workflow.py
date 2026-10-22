@@ -139,7 +139,7 @@ def test_health_and_login_throttle(clients):
     client = clients()
     response = client.get("/api/v1/health")
     assert response.status_code == 200 and response.json()["components"]["database"] == "ready"
-    assert response.json()["components"]["ai"] == "not_implemented"
+    assert response.json()["components"]["ai"] == "ready_demo"
     assert response.headers["cache-control"] == "no-store"
     # Skip expensive Argon2 work here: this test specifically exercises the limiter.
     with patch("app.main.password_hasher.verify", return_value=False):

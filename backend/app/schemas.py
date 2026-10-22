@@ -43,16 +43,40 @@ class UserOutput(BaseModel):
     role: Literal["employee", "admin"]
 
 
-class TicketInput(InputModel):
+class TicketText(InputModel):
     title: str = Field(min_length=5, max_length=160)
     description: str = Field(min_length=15, max_length=10000)
-    category: Category
-    priority: Priority = "Normal"
 
     @field_validator("title", "description", mode="before")
     @classmethod
     def trim_text(cls, value):
         return value.strip() if isinstance(value, str) else value
+
+
+class TicketInput(TicketText):
+    category: Category
+    priority: Priority = "Normal"
+
+
+class CategoryScore(BaseModel):
+    category: Category
+    score: float = Field(ge=0, le=1)
+
+
+class AIResult(BaseModel):
+    suggested_category: Category | None
+    model_score: float | None = Field(ge=0, le=1)
+    needs_review: bool
+    reason: Literal["suggested", "low_confidence", "out_of_scope", "unsupported_language",
+                    "insufficient_detail", "unavailable"]
+    message: str
+    scores: list[CategoryScore]
+    margin: float | None
+    similarity: float | None
+    model_version: str | None
+    scope: Literal["synthetic_english_demo"]
+    selected_category: Category | None = None
+    recorded_at: datetime | None = None
 
 
 class TicketUpdate(InputModel):
@@ -85,6 +109,7 @@ class TicketOutput(BaseModel):
     updated_at: datetime
     resolved_at: datetime | None
     version: int
+    ai_assessment: AIResult | None = None
 
 
 class CommentOutput(BaseModel):
