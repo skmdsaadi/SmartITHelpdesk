@@ -1,0 +1,209 @@
+"""PostgreSQL accounts, sessions, tickets and an audited admin workflow."""
+from typing import Annotated
+from fastapi import Depends, FastAPI, Header, HTTPException, Query, Request, Response
+from fastapi.responses import JSONResponse
+from sqlalchemy import delete, func, or_, select, text
+from sqlalchemy.exc import IntegrityError, SQLAlchemyError
+from . import config
+from .database import get_engine
+from .models import AuthSession, Comment, Ticket, TicketEvent, User, utcnow
+from .schemas import (
+    Category, CommentInput, CommentOutput, DashboardOutput, EventOutput, LoginInput,
+    Priority, RegisterInput, Status, TicketDetail, TicketInput, TicketOutput,
+    TicketPage, TicketUpdate, UserOutput,
+)
+from .security import (
+    AdminUser, CurrentUser, DB, dummy_hash, limit_auth, password_hasher,
+    start_session, token_hash,
+)
+
+def browser_request_guard(request: Request, x_helpdesk_request: Annotated[str | None, Header()] = None):
+    """A custom header plus exact Origin validation protects cookie-auth mutations."""
+    if request.method in {"POST", "PUT", "PATCH", "DELETE"}:
+        origin = request.headers.get("origin")
+        if x_helpdesk_request != "1" or (origin and origin not in config.ALLOWED_ORIGINS):
+            raise HTTPException(403, "Request origin or security header is not allowed.")
+        if request.headers.get("sec-fetch-site") == "cross-site":
+            raise HTTPException(403, "Cross-site requests are not allowed.")
+
+app = FastAPI(
+    title="Smart IT Helpdesk API", version="0.2.0",
+    description="Accounts and tickets. AI is planned for Phase 3. Write requests require "
+                "X-Helpdesk-Request: 1. Login sets an HttpOnly session cookie.",
+    dependencies=[Depends(browser_request_guard)],
+)
+
+@app.middleware("http")
+async def response_headers(request: Request, call_next):
+    response = await call_next(request)
+    response.headers["Cache-Control"] = "no-store"
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    return response
+
+@app.exception_handler(SQLAlchemyError)
+async def database_error(_request: Request, _error: SQLAlchemyError):
+    return JSONResponse(status_code=503, content={
+        "detail": "Database operation failed. Check PostgreSQL and run database migrations."
+    })
+
+@app.get("/api/v1/health", tags=["System"])
+def health(response: Response):
+    ready = False
+    try:
+        with get_engine().connect() as connection:
+            ready = connection.execute(text("SELECT version_num FROM alembic_version")).scalar() == "0001"
+    except (SQLAlchemyError, RuntimeError, ValueError):
+        pass
+    if not ready:
+        response.status_code = 503
+    return {
+        "status": "ok" if ready else "degraded", "service": "smart-it-helpdesk",
+        "version": "0.2.0", "timestamp": utcnow(),
+        "components": {"api": "ready", "database": "ready" if ready else "needs_setup",
+                       "authentication": "ready", "tickets": "ready", "ai": "not_implemented"},
+        "registration_enabled": config.ALLOW_REGISTRATION,
+    }
+
+@app.post("/api/v1/auth/register", response_model=UserOutput, status_code=201, tags=["Accounts"])
+def register(data: RegisterInput, request: Request, response: Response, db: DB):
+    if not config.ALLOW_REGISTRATION:
+        raise HTTPException(403, "Account registration is currently disabled.")
+    limit_auth(request, "register")
+    user = User(name=data.name, email=str(data.email).lower(), role="employee",
+                password_hash=password_hasher.hash(data.password))
+    db.add(user)
+    try:
+        db.flush()
+    except IntegrityError:
+        db.rollback()
+        raise HTTPException(409, "An account with this email already exists.") from None
+    start_session(db, user, response, request.cookies.get(config.COOKIE_NAME))
+    return user
+
+@app.post("/api/v1/auth/login", response_model=UserOutput, tags=["Accounts"])
+def login(data: LoginInput, request: Request, response: Response, db: DB):
+    limit_auth(request, "login")
+    user = db.scalar(select(User).where(User.email == str(data.email).lower()))
+    valid = password_hasher.verify(data.password, user.password_hash if user else dummy_hash)
+    if not user or not valid or not user.is_active:
+        raise HTTPException(401, "Email or password is incorrect.")
+    start_session(db, user, response, request.cookies.get(config.COOKIE_NAME))
+    return user
+
+@app.get("/api/v1/auth/me", response_model=UserOutput, tags=["Accounts"])
+def me(user: CurrentUser):
+    return user
+
+@app.post("/api/v1/auth/logout", status_code=204, tags=["Accounts"])
+def logout(request: Request, response: Response, db: DB):
+    token = request.cookies.get(config.COOKIE_NAME)
+    if token:
+        db.execute(delete(AuthSession).where(AuthSession.token_hash == token_hash(token)))
+        db.commit()
+    response.delete_cookie(config.COOKIE_NAME, path="/api", httponly=True,
+                           secure=config.COOKIE_SECURE, samesite="lax")
+
+def visible_tickets(user: User):
+    stmt = select(Ticket)
+    if user.role != "admin":
+        stmt = stmt.where(Ticket.created_by == user.id)
+    return stmt
+
+def find_ticket(db, user: User, ticket_id: int, lock=False):
+    stmt = visible_tickets(user).where(Ticket.id == ticket_id)
+    if lock:
+        stmt = stmt.with_for_update(of=Ticket)
+    ticket = db.scalar(stmt)
+    if not ticket:
+        raise HTTPException(404, "Ticket not found.")
+    return ticket
+
+def ticket_detail(db, ticket):
+    data = TicketOutput.model_validate(ticket).model_dump()
+    data["comments"] = [CommentOutput.model_validate(item) for item in db.scalars(
+        select(Comment).where(Comment.ticket_id == ticket.id).order_by(Comment.created_at, Comment.id))]
+    data["events"] = [EventOutput.model_validate(item) for item in db.scalars(
+        select(TicketEvent).where(TicketEvent.ticket_id == ticket.id).order_by(TicketEvent.created_at, TicketEvent.id))]
+    return data
+
+@app.get("/api/v1/dashboard", response_model=DashboardOutput, tags=["Dashboard"])
+def dashboard(user: CurrentUser, db: DB):
+    filtered = visible_tickets(user)
+    base = filtered.subquery()
+    groups = dict(db.execute(select(base.c.status, func.count()).group_by(base.c.status)).all())
+    return {
+        "total": sum(groups.values()), "open": groups.get("Open", 0),
+        "in_progress": groups.get("In Progress", 0), "resolved": groups.get("Resolved", 0),
+        "high_priority": db.scalar(select(func.count()).select_from(base).where(
+            base.c.priority == "High", base.c.status != "Resolved")),
+        "recent": db.scalars(filtered.order_by(Ticket.updated_at.desc(), Ticket.id.desc()).limit(5)).all(),
+    }
+
+@app.get("/api/v1/tickets", response_model=TicketPage, tags=["Tickets"])
+def list_tickets(
+    user: CurrentUser, db: DB, status: Status | None = None,
+    category: Category | None = None, priority: Priority | None = None,
+    search: Annotated[str, Query(max_length=160)] = "",
+    page: Annotated[int, Query(ge=1, le=100000)] = 1,
+    page_size: Annotated[int, Query(ge=1, le=50)] = 10,
+):
+    stmt = visible_tickets(user)
+    for field, value in [(Ticket.status, status), (Ticket.category, category), (Ticket.priority, priority)]:
+        if value is not None:
+            stmt = stmt.where(field == value)
+    if search.strip():
+        query = search.strip()
+        stmt = stmt.where(or_(Ticket.title.icontains(query, autoescape=True),
+                              Ticket.description.icontains(query, autoescape=True)))
+    total = db.scalar(select(func.count()).select_from(stmt.subquery()))
+    items = db.scalars(stmt.order_by(Ticket.created_at.desc(), Ticket.id.desc())
+                      .offset((page - 1) * page_size).limit(page_size)).all()
+    return {"items": items, "total": total, "page": page, "page_size": page_size}
+
+@app.post("/api/v1/tickets", response_model=TicketOutput, status_code=201, tags=["Tickets"])
+def create_ticket(data: TicketInput, user: CurrentUser, db: DB):
+    ticket = Ticket(**data.model_dump(), created_by=user.id, status="Open")
+    db.add(ticket)
+    db.flush()
+    db.add(TicketEvent(ticket_id=ticket.id, user_id=user.id, message="Ticket opened."))
+    db.commit()
+    db.refresh(ticket)
+    return ticket
+
+@app.get("/api/v1/tickets/{ticket_id}", response_model=TicketDetail, tags=["Tickets"])
+def get_ticket(ticket_id: int, user: CurrentUser, db: DB):
+    return ticket_detail(db, find_ticket(db, user, ticket_id))
+
+@app.patch("/api/v1/tickets/{ticket_id}", response_model=TicketDetail, tags=["Tickets"])
+def update_ticket(ticket_id: int, data: TicketUpdate, user: AdminUser, db: DB):
+    ticket = find_ticket(db, user, ticket_id, lock=True)
+    if data.version != ticket.version:
+        raise HTTPException(409, "Another update was saved. Refresh this ticket before changing it.")
+    changes = []
+    for field in ["status", "priority", "category"]:
+        before, after = getattr(ticket, field), getattr(data, field)
+        if before != after:
+            changes.append(f"{field.capitalize()}: {before} → {after}")
+            setattr(ticket, field, after)
+    if changes:
+        ticket.updated_at = utcnow()
+        ticket.version += 1
+        if ticket.status == "Resolved" and ticket.resolved_at is None:
+            ticket.resolved_at = utcnow()
+        elif ticket.status != "Resolved":
+            ticket.resolved_at = None
+        db.add(TicketEvent(ticket_id=ticket.id, user_id=user.id, message="; ".join(changes)))
+        db.commit()
+        db.refresh(ticket)
+    return ticket_detail(db, ticket)
+
+@app.post("/api/v1/tickets/{ticket_id}/comments", response_model=CommentOutput,
+          status_code=201, tags=["Tickets"])
+def add_comment(ticket_id: int, data: CommentInput, user: CurrentUser, db: DB):
+    ticket = find_ticket(db, user, ticket_id, lock=True)
+    comment = Comment(ticket_id=ticket.id, user_id=user.id, body=data.body)
+    db.add(comment)
+    ticket.updated_at = utcnow()
+    db.commit()
+    db.refresh(comment)
+    return comment
