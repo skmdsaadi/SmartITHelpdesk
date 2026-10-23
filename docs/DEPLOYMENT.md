@@ -84,7 +84,7 @@ Automatic deploys are off. After a reviewed code update, choose **Manual Deploy 
 
 | Symptom | Check |
 | --- | --- |
-| `render.yaml` cannot be found | Select `phase5-deployment`, not the older `main` branch |
+| `render.yaml` cannot be found | Select the `main` branch after all phase pull requests are merged |
 | Frontend build missing | Use the root Dockerfile/context; do not deploy only `backend/` |
 | Startup stopped / database preparation failed | Check the direct Neon URI, database/role, TLS query options, project state and network access; keep the URI private |
 | First deployment requires bootstrap values | Supply all three `BOOTSTRAP_ADMIN_*` values in Render Environment and redeploy |

@@ -41,7 +41,7 @@ async def lifespan(_app):
 
 
 app = FastAPI(
-    title="Smart IT Helpdesk API", version="0.5.0", lifespan=lifespan,
+    title="Smart IT Helpdesk API", version="1.0.0", lifespan=lifespan,
     docs_url=None if config.PRODUCTION else "/docs",
     redoc_url=None if config.PRODUCTION else "/redoc",
     openapi_url=None if config.PRODUCTION else "/openapi.json", redirect_slashes=False,
@@ -79,7 +79,7 @@ async def database_error(_request: Request, _error: SQLAlchemyError):
 @app.get("/healthz", include_in_schema=False)
 async def liveness():
     # Render probes this frequently. Do not wake an idle Neon database or fit AI.
-    return {"status": "ok", "service": "smart-it-helpdesk", "version": "0.5.0"}
+    return {"status": "ok", "service": "smart-it-helpdesk", "version": "1.0.0"}
 
 
 @app.get("/api/v1/health", tags=["System"])
@@ -94,7 +94,7 @@ def health(response: Response):
         response.status_code = 503
     return {
         "status": "ok" if ready else "degraded", "service": "smart-it-helpdesk",
-        "version": "0.5.0", "timestamp": utcnow(),
+        "version": "1.0.0", "timestamp": utcnow(),
         "components": {"api": "ready", "database": "ready" if ready else "needs_setup",
                        "authentication": "ready", "tickets": "ready", "knowledge": "ready" if ready else "needs_setup",
                        "ai": "ready_demo" if classifier.get_model() else "unavailable"},

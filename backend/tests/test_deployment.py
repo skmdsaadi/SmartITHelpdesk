@@ -64,7 +64,7 @@ def test_liveness_never_queries_database_or_fits_model():
     with patch("app.main.get_engine", side_effect=AssertionError("Must not connect")), patch("app.main.classifier.get_model", side_effect=AssertionError("Must not train")):
         with TestClient(app) as client:
             response = client.get("/healthz")
-            assert response.status_code == 200 and response.json()["version"] == "0.5.0"
+            assert response.status_code == 200 and response.json()["version"] == "1.0.0"
 
 
 def test_https_login_uses_secure_cookie_and_exact_origin(app_context, clients, monkeypatch):
