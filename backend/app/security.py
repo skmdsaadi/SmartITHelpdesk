@@ -81,3 +81,19 @@ def limit_auth(request: Request, action: str):
             raise HTTPException(429, "Too many attempts. Please wait before trying again.",
                                 headers={"Retry-After": str(seconds)})
         values.append(now)
+
+
+def limit_user(user_id: int, action: str, limit: int, seconds: int = 60):
+    """Bound expensive authenticated operations in this process, without trusting client IPs."""
+    now = time.monotonic()
+    key = f"user:{user_id}:{action}"
+    with _lock:
+        for old in [k for k, values in _attempts.items() if not values or values[-1] < now - 1800]:
+            del _attempts[old]
+        values = _attempts[key]
+        while values and values[0] <= now - seconds:
+            values.popleft()
+        if len(values) >= limit:
+            raise HTTPException(429, "Too many requests. Please wait a minute and try again.",
+                                headers={"Retry-After": str(seconds)})
+        values.append(now)

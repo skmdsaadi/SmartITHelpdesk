@@ -1,5 +1,7 @@
 # Phase 3 verification
 
+This records the earlier category-classifier release. See [Phase 4 verification](PHASE4_VERIFICATION.md) for document upload and chat checks.
+
 ## Observed checks
 
 | Check | Observed result |

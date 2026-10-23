@@ -2,7 +2,7 @@
 
 An AI capstone that brings employee IT requests, administrator workflows and category suggestions into one web application.
 
-**Phase 3 / version 0.3.0:** React + Vite + TypeScript + Tailwind CSS, Python + FastAPI, PostgreSQL and a working scikit-learn classifier. This is a local development release; a public application deployment has not been completed.
+**Phase 4 / version 0.4.0:** React + Vite + TypeScript + Tailwind CSS, Python + FastAPI, PostgreSQL, a scikit-learn classifier and document-backed conversations. This is a local development release; a public application deployment has not been completed.
 
 ## Problem and proposed solution
 
@@ -20,11 +20,15 @@ The six categories are **Email, Network, Hardware, Software, Printer and Access*
 - Manual selection when a suggestion is uncertain, unsupported or unavailable.
 - An immutable AI assessment at ticket creation, stored alongside the person's selected category.
 - An administrator **AI insights** page with measured metrics, confusion matrix and limitations.
+- Administrator PDF/TXT upload, extracted-text preview, activation and removal.
+- **Ask helpdesk** searches active documents and returns matching passages with source links.
+- Private conversations saved in PostgreSQL, including protection against duplicate network retries.
+- Document deactivation/removal also hides its quotations in earlier chat responses.
 - Responsive desktop and mobile layouts.
 
 ## Setup
 
-**Already running Phase 2?** Follow [Phase 3 Windows upgrade](docs/PHASE3_SETUP.md).
+**Already running Phase 2 or 3?** Follow [Phase 4 Windows upgrade](docs/PHASE4_SETUP.md).
 
 **First installation?** Install Python 3.11, Node 22.12+ and PostgreSQL 17, then follow [Windows setup](docs/WINDOWS_SETUP.md) for database and administrator creation. Exact dependencies are recorded in the lockfiles.
 
@@ -73,9 +77,23 @@ The local setup helper keeps an existing `backend/.env`, applies pending Alembic
 
 Changing the title or description clears an earlier suggestion. The server recomputes the assessment from the submitted text, so stale or client-forged predictions are not stored. Existing Phase 2 tickets remain readable with no fabricated historical AI result.
 
+## Try document-backed chat
+
+1. Sign in as administrator and open **Knowledge**.
+2. Set the title to `Demo IT Support Guide` and upload [the included demo TXT file](docs/examples/IT_Helpdesk_Demo_Guide.txt).
+3. Open **View passages** to inspect the extracted text.
+4. Open **Ask helpdesk** and ask `How do I troubleshoot a Wi-Fi connection?`.
+5. Follow the document-title link in the response to its highlighted source passage.
+6. Refresh the page to confirm that your conversation is saved.
+7. Ask an unrelated question, such as `How do I bake a chocolate birthday cake?`, to see the no-match response.
+
+The included guide is illustrative content, not an approved company policy. Active documents are readable by all signed-in users. Only administrators manage documents; every account, including administrators, can read only its own conversations.
+
+**This is extractive document search, not an LLM-generated answer.** Word/character TF-IDF ranks passages; replies quote the matching text. Each question is searched independently. No API key, paid AI service or external document upload is involved. The app does not translate, perform OCR or validate the correctness of an uploaded policy. See [knowledge methodology, permissions and limits](docs/KNOWLEDGE_METHOD.md).
+
 ## Demo screenshots
 
-These captures use seeded **Demo Employee** and **Demo IT Admin** accounts and illustrative ticket text. Model metrics describe the synthetic evaluation dataset, not measured real-office performance.
+These Phase 3 captures show the category workflow and use seeded **Demo Employee** and **Demo IT Admin** accounts and illustrative ticket text. Phase 4 also adds Ask helpdesk and Knowledge navigation. Model metrics describe the synthetic evaluation dataset, not measured real-office performance.
 
 **Create a ticket and explicitly apply a category suggestion:**
 
@@ -128,6 +146,9 @@ This writes `backend/evaluation/report.json`, `split_manifest.json`, `test_predi
 | `backend/app/main.py` | Authenticated API and ticket workflow |
 | `backend/app/classifier.py` | Grouped splits, fitted pipeline, abstention and metrics |
 | `backend/app/train_classifier.py` | Reproducible evaluation export |
+| `backend/app/knowledge_api.py` | Document management, private conversations and source visibility |
+| `backend/app/documents.py`, `pdf_worker.py` | Validated upload, bounded PDF extraction and chunking |
+| `backend/app/retrieval.py` | Local TF-IDF passage ranking and no-match behavior |
 | `backend/data/` | Synthetic examples, negative controls and provenance |
 | `backend/alembic/` | Versioned database migrations |
 | `backend/tests/` | Model, authorization and persistence regression tests |
@@ -135,16 +156,16 @@ This writes `backend/evaluation/report.json`, `split_manifest.json`, `test_predi
 
 ## Verification
 
-Nineteen automated tests passed, including employee isolation, server-generated AI snapshots, manual overrides, unavailable-model fallback and evidence that modifying held-out test text cannot change learned parameters or the validation threshold. Production frontend build and browser workflows passed. A migration from Phase 2 preserved an existing ticket. See [verification details and limits](docs/VERIFICATION.md).
+Forty automated tests passed, including the original account/ticket/classifier checks, real PDF extraction, upload limits, private chat isolation, exact citations, duplicate retry handling and source revocation. Production frontend build and browser workflows passed. Migrations preserve earlier accounts and tickets. See [Phase 4 verification details and limits](docs/PHASE4_VERIFICATION.md) and [Phase 3 evidence](docs/VERIFICATION.md).
 
-To run model-only tests:
+To run database-free tests:
 
 ```powershell
 & {
     Set-Location "D:\Projects\SmartITHelpdesk\backend"
     .\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
     if ($LASTEXITCODE -ne 0) { throw "Test dependency installation failed." }
-    .\.venv\Scripts\python.exe -m pytest tests/test_classifier.py -q
+    .\.venv\Scripts\python.exe -m pytest tests/test_classifier.py tests/test_documents.py tests/test_retrieval.py -q
 }
 ```
 
@@ -152,8 +173,8 @@ Integration tests additionally require `TEST_DATABASE_URL` for a disposable Post
 
 ## Remaining capstone work
 
-- Admin PDF/TXT knowledge upload and source-linked retrieval/chat.
 - Independent label review and permissioned, anonymized real-ticket evaluation.
+- Independent retrieval evaluation using representative, permissioned IT guides and questions.
 - Bangla/Banglish evaluation if those languages are included in the final claim.
 - Free-host deployment, production configuration and a verified live URL.
 - A final report covering the completed application, results and limitations.
