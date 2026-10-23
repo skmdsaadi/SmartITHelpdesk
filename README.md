@@ -2,7 +2,18 @@
 
 An AI capstone that brings employee IT requests, administrator workflows and category suggestions into one web application.
 
-**Phase 5 / version 0.5.0:** React + Vite + TypeScript + Tailwind CSS, Python + FastAPI, PostgreSQL, a scikit-learn classifier and document-backed conversations. A Docker image and Render/Neon deployment configuration are included. Hosting account setup and a verified public application URL remain pending.
+**Version 1.0.0 — final capstone release.** React + Vite + TypeScript + Tailwind CSS, Python + FastAPI, PostgreSQL, a scikit-learn ticket classifier and document-backed conversations.
+
+**Live application:** <https://smart-it-helpdesk-hdw5.onrender.com/> (Render Free web service + Neon Free PostgreSQL). The free service sleeps when idle, so the first visit can take about a minute to load. Evaluators can register an employee account; administrator access is provided on request.
+
+| Deliverable | Location |
+| --- | --- |
+| Project proposal | [docs/PROPOSAL.md](docs/PROPOSAL.md) |
+| Final report | [docs/FINAL_REPORT.md](docs/FINAL_REPORT.md) |
+| AI model card | [docs/MODEL_CARD.md](docs/MODEL_CARD.md) |
+| Knowledge search method | [docs/KNOWLEDGE_METHOD.md](docs/KNOWLEDGE_METHOD.md) |
+| Evaluation evidence | [docs/evaluation/](docs/evaluation/README.md) |
+| Deployment guide | [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) |
 
 ## Problem and proposed solution
 
@@ -26,9 +37,9 @@ The six categories are **Email, Network, Hardware, Software, Printer and Access*
 - Document deactivation/removal also hides its quotations in earlier chat responses.
 - Responsive desktop and mobile layouts.
 
-## Free hosting
+## Deployment
 
-Follow [the Render + Neon deployment guide](docs/DEPLOYMENT.md). Deploy the `phase5-deployment` branch: the root Dockerfile builds React and serves it with FastAPI on one HTTPS origin. The Blueprint selects one free web service; create the separate PostgreSQL database on Neon Free. Keep database and administrator credentials in the hosting environment.
+The application is deployed at <https://smart-it-helpdesk-hdw5.onrender.com/>. To deploy your own copy, follow [the Render + Neon deployment guide](docs/DEPLOYMENT.md) and deploy the `main` branch: the root Dockerfile builds React and serves it with FastAPI on one HTTPS origin. The Blueprint selects one free web service; create the separate PostgreSQL database on Neon Free. Keep database and administrator credentials in the hosting environment.
 
 ## Setup
 
@@ -97,7 +108,7 @@ The included guide is illustrative content, not an approved company policy. Acti
 
 ## Demo screenshots
 
-These Phase 3 captures show the category workflow and use seeded **Demo Employee** and **Demo IT Admin** accounts and illustrative ticket text. Phase 4 also adds Ask helpdesk and Knowledge navigation. Model metrics describe the synthetic evaluation dataset, not measured real-office performance.
+Captures use demo accounts and illustrative ticket text. Model metrics describe the synthetic evaluation dataset, not measured real-office performance.
 
 **Create a ticket and explicitly apply a category suggestion:**
 
@@ -113,6 +124,20 @@ These Phase 3 captures show the category workflow and use seeded **Demo Employee
 ![Mobile AI insights with the same metrics and limitations](docs/screenshots/ai-insights-mobile.png)
 
 </details>
+
+**Ask helpdesk — answer quoted from an uploaded guide, with a source link:**
+
+![Ask helpdesk conversation showing a matching passage and its source](docs/screenshots/ask-helpdesk-desktop.png)
+
+**Knowledge library (administrator upload and activation):**
+
+![Knowledge page listing an uploaded guide](docs/screenshots/knowledge-desktop.png)
+
+**Ticket list and ticket detail with conversation and history:**
+
+![Ticket list with filters](docs/screenshots/tickets-desktop.png)
+
+![Ticket detail with AI assessment, replies and activity history](docs/screenshots/ticket-detail-desktop.png)
 
 ## AI methodology and results
 
@@ -162,7 +187,7 @@ This writes `backend/evaluation/report.json`, `split_manifest.json`, `test_predi
 
 ## Verification
 
-Fifty-five automated tests passed, including account/ticket/classifier checks, PDF extraction, chat privacy, exact citations, retry handling, source revocation and deployment startup/security cases. The production frontend build and local HTTPS browser workflow passed. Migrations preserve earlier accounts and tickets. A live hosting deployment and the complete Docker build remain unverified. See [Phase 5 verification and limits](docs/PHASE5_VERIFICATION.md), [Phase 4 verification](docs/PHASE4_VERIFICATION.md) and [Phase 3 evidence](docs/VERIFICATION.md).
+Fifty-five automated tests passed, including account/ticket/classifier checks, PDF extraction, chat privacy, exact citations, retry handling, source revocation and deployment startup/security cases. The production frontend build and local HTTPS browser workflow passed. Migrations preserve earlier accounts and tickets. The Docker image was then built and deployed on Render with a Neon database (live URL above). See [Phase 5 verification and limits](docs/PHASE5_VERIFICATION.md), [Phase 4 verification](docs/PHASE4_VERIFICATION.md) and [Phase 3 evidence](docs/VERIFICATION.md).
 
 To run database-free tests:
 
@@ -177,12 +202,24 @@ To run database-free tests:
 
 Integration tests additionally require `TEST_DATABASE_URL` for a disposable PostgreSQL database. They create a randomly named schema and remove only that schema. Without this explicit setting integration tests are skipped, not counted as passing.
 
-## Remaining capstone work
+## Limitations and future work
 
-- Independent label review and permissioned, anonymized real-ticket evaluation.
-- Independent retrieval evaluation using representative, permissioned IT guides and questions.
-- Bangla/Banglish evaluation if those languages are included in the final claim.
-- Hosting account setup, deployment and verification of the live URL using the included configuration.
-- A final report covering the completed application, results and limitations.
+- The classifier is trained and evaluated on 324 synthetic English examples. Real-office accuracy needs a permissioned, anonymized ticket set with independent label review.
+- Retrieval thresholds are hand-set; an independent evaluation with real IT guides and questions is still needed.
+- Bangla and Banglish are not validated. A multilingual embedding model is the natural next step.
+- Knowledge search quotes passages; it does not generate answers. An optional LLM layer could summarize retrieved passages while keeping source links.
+- Production use would need shared rate limits, email verification, password recovery, backups and monitoring.
 
-The repository records real implementation commits. No earlier development history or deployment result is invented. The deployment configuration uses HTTPS origins, secure cookies, one worker and employee self-registration for the capstone. Process-local limits reset on restart; shared limits are required before scaling. See [deployment behavior and limits](docs/DEPLOYMENT.md). Authentication details are documented in [architecture](docs/ARCHITECTURE.md).
+## Version history
+
+Development happened in reviewed phases, each on its own branch and merged by pull request:
+
+| Phase | Branch | Content |
+| --- | --- | --- |
+| 1–2 | `main` | FastAPI, PostgreSQL accounts, tickets, admin workflow |
+| 3 | `phase3-ai-classifier` | TF-IDF + Logistic Regression category suggestions and evaluation |
+| 4 | `phase4-knowledge-chat` | PDF/TXT knowledge library and source-backed chat |
+| 5 | `phase5-deployment` | Docker, Render Blueprint and Neon deployment |
+| 6 | `phase6-final` | Proposal, final report, final README and screenshots |
+
+Authentication details are documented in [architecture](docs/ARCHITECTURE.md); deployment limits in [the deployment guide](docs/DEPLOYMENT.md).

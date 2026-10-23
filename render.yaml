@@ -5,7 +5,7 @@ services:
     runtime: docker
     plan: free
     region: singapore
-    branch: phase5-deployment
+    branch: main
     dockerfilePath: ./Dockerfile
     dockerContext: .
     healthCheckPath: /healthz

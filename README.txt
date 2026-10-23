@@ -1,4 +1,4 @@
-Smart IT Helpdesk — Phase 5 / 0.5.0
+Smart IT Helpdesk — version 1.0.0 (final)
 
 Existing Phase 2 or 3 installation: follow docs/PHASE4_SETUP.md.
 First installation: README.md and docs/WINDOWS_SETUP.md.
@@ -22,3 +22,6 @@ Frontend (another PowerShell):
   npm.cmd run dev
 
 Open http://127.0.0.1:5173
+
+Live: https://smart-it-helpdesk-hdw5.onrender.com/
+Proposal: docs/PROPOSAL.md   Final report: docs/FINAL_REPORT.md
