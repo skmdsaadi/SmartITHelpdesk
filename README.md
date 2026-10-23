@@ -85,6 +85,13 @@ These captures use seeded **Demo Employee** and **Demo IT Admin** accounts and i
 
 ![Desktop AI insights with synthetic evaluation metrics, data splits and confusion matrix](docs/screenshots/ai-insights-desktop.png)
 
+<details>
+<summary>View AI insights on mobile</summary>
+
+![Mobile AI insights with the same metrics and limitations](docs/screenshots/ai-insights-mobile.png)
+
+</details>
+
 ## AI methodology and results
 
 The bundled dataset contains **324 synthetic English examples**, grouped into **108 issue intents**. It was generated for this capstone; it is not a collection of real employee tickets and its labels have not undergone independent human review.

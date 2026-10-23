@@ -34,7 +34,7 @@ The API-process restart test retained the database process; it does not establis
 
 One Starlette TestClient/httpx deprecation warning was emitted. It did not fail tests and is unrelated to normal browser/API runtime.
 
-Screenshot accounts (`Demo Employee`, `Demo IT Admin`) and tickets are seeded test data. The two desktop captures in [the README](../README.md#demo-screenshots) were inspected for layout and contain only demo data and synthetic evaluation results. The mobile capture was inspected locally and is not included in the repository. No operational company data or pre-provisioned production account is bundled.
+Screenshot accounts (`Demo Employee`, `Demo IT Admin`) and tickets are seeded test data. The three captures in [the README](../README.md#demo-screenshots) were inspected for desktop/mobile layout and contain only demo data and synthetic evaluation results. No operational company data or pre-provisioned production account is bundled.
 
 ## Reproduce the automated tests
 
