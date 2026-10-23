@@ -73,6 +73,18 @@ The local setup helper keeps an existing `backend/.env`, applies pending Alembic
 
 Changing the title or description clears an earlier suggestion. The server recomputes the assessment from the submitted text, so stale or client-forged predictions are not stored. Existing Phase 2 tickets remain readable with no fabricated historical AI result.
 
+## Demo screenshots
+
+These captures use seeded **Demo Employee** and **Demo IT Admin** accounts and illustrative ticket text. Model metrics describe the synthetic evaluation dataset, not measured real-office performance.
+
+**Create a ticket and explicitly apply a category suggestion:**
+
+![Ticket creation with a Network suggestion selected by the employee](docs/screenshots/create-ai-desktop.png)
+
+**Administrator AI insights on desktop:**
+
+![Desktop AI insights with synthetic evaluation metrics, data splits and confusion matrix](docs/screenshots/ai-insights-desktop.png)
+
 ## AI methodology and results
 
 The bundled dataset contains **324 synthetic English examples**, grouped into **108 issue intents**. It was generated for this capstone; it is not a collection of real employee tickets and its labels have not undergone independent human review.
@@ -137,6 +149,6 @@ Integration tests additionally require `TEST_DATABASE_URL` for a disposable Post
 - Independent label review and permissioned, anonymized real-ticket evaluation.
 - Bangla/Banglish evaluation if those languages are included in the final claim.
 - Free-host deployment, production configuration and a verified live URL.
-- Documentation screenshots and a final report covering the completed application, results and limitations.
+- A final report covering the completed application, results and limitations.
 
 The repository records real implementation commits. No earlier development history or deployment result is invented. Public deployment still needs HTTPS, secure cookies, exact allowed origins, an appropriate registration policy and shared request limits. Authentication details are documented in [architecture](docs/ARCHITECTURE.md).
