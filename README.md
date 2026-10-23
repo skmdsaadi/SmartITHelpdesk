@@ -2,7 +2,7 @@
 
 An AI capstone that brings employee IT requests, administrator workflows and category suggestions into one web application.
 
-**Phase 4 / version 0.4.0:** React + Vite + TypeScript + Tailwind CSS, Python + FastAPI, PostgreSQL, a scikit-learn classifier and document-backed conversations. This is a local development release; a public application deployment has not been completed.
+**Phase 5 / version 0.5.0:** React + Vite + TypeScript + Tailwind CSS, Python + FastAPI, PostgreSQL, a scikit-learn classifier and document-backed conversations. A Docker image and Render/Neon deployment configuration are included. Hosting account setup and a verified public application URL remain pending.
 
 ## Problem and proposed solution
 
@@ -25,6 +25,10 @@ The six categories are **Email, Network, Hardware, Software, Printer and Access*
 - Private conversations saved in PostgreSQL, including protection against duplicate network retries.
 - Document deactivation/removal also hides its quotations in earlier chat responses.
 - Responsive desktop and mobile layouts.
+
+## Free hosting
+
+Follow [the Render + Neon deployment guide](docs/DEPLOYMENT.md). Deploy the `phase5-deployment` branch: the root Dockerfile builds React and serves it with FastAPI on one HTTPS origin. The Blueprint selects one free web service; create the separate PostgreSQL database on Neon Free. Keep database and administrator credentials in the hosting environment.
 
 ## Setup
 
@@ -149,6 +153,8 @@ This writes `backend/evaluation/report.json`, `split_manifest.json`, `test_predi
 | `backend/app/knowledge_api.py` | Document management, private conversations and source visibility |
 | `backend/app/documents.py`, `pdf_worker.py` | Validated upload, bounded PDF extraction and chunking |
 | `backend/app/retrieval.py` | Local TF-IDF passage ranking and no-match behavior |
+| `Dockerfile`, `render.yaml` | Single-service hosting configuration |
+| `backend/app/start.py`, `web.py` | Transactional startup and compiled UI serving |
 | `backend/data/` | Synthetic examples, negative controls and provenance |
 | `backend/alembic/` | Versioned database migrations |
 | `backend/tests/` | Model, authorization and persistence regression tests |
@@ -156,7 +162,7 @@ This writes `backend/evaluation/report.json`, `split_manifest.json`, `test_predi
 
 ## Verification
 
-Forty automated tests passed, including the original account/ticket/classifier checks, real PDF extraction, upload limits, private chat isolation, exact citations, duplicate retry handling and source revocation. Production frontend build and browser workflows passed. Migrations preserve earlier accounts and tickets. See [Phase 4 verification details and limits](docs/PHASE4_VERIFICATION.md) and [Phase 3 evidence](docs/VERIFICATION.md).
+Fifty-five automated tests passed, including account/ticket/classifier checks, PDF extraction, chat privacy, exact citations, retry handling, source revocation and deployment startup/security cases. The production frontend build and local HTTPS browser workflow passed. Migrations preserve earlier accounts and tickets. A live hosting deployment and the complete Docker build remain unverified. See [Phase 5 verification and limits](docs/PHASE5_VERIFICATION.md), [Phase 4 verification](docs/PHASE4_VERIFICATION.md) and [Phase 3 evidence](docs/VERIFICATION.md).
 
 To run database-free tests:
 
@@ -176,7 +182,7 @@ Integration tests additionally require `TEST_DATABASE_URL` for a disposable Post
 - Independent label review and permissioned, anonymized real-ticket evaluation.
 - Independent retrieval evaluation using representative, permissioned IT guides and questions.
 - Bangla/Banglish evaluation if those languages are included in the final claim.
-- Free-host deployment, production configuration and a verified live URL.
+- Hosting account setup, deployment and verification of the live URL using the included configuration.
 - A final report covering the completed application, results and limitations.
 
-The repository records real implementation commits. No earlier development history or deployment result is invented. Public deployment still needs HTTPS, secure cookies, exact allowed origins, an appropriate registration policy and shared request limits. Authentication details are documented in [architecture](docs/ARCHITECTURE.md).
+The repository records real implementation commits. No earlier development history or deployment result is invented. The deployment configuration uses HTTPS origins, secure cookies, one worker and employee self-registration for the capstone. Process-local limits reset on restart; shared limits are required before scaling. See [deployment behavior and limits](docs/DEPLOYMENT.md). Authentication details are documented in [architecture](docs/ARCHITECTURE.md).

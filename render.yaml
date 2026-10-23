@@ -1,0 +1,29 @@
+# One free web service. PostgreSQL is provisioned separately on Neon Free.
+services:
+  - type: web
+    name: smart-it-helpdesk
+    runtime: docker
+    plan: free
+    region: singapore
+    branch: phase5-deployment
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /healthz
+    autoDeployTrigger: "off"
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: ALLOW_REGISTRATION
+        value: "true"
+      - key: SESSION_HOURS
+        value: "12"
+      - key: DATABASE_URL
+        sync: false
+      - key: BOOTSTRAP_ADMIN_NAME
+        sync: false
+      - key: BOOTSTRAP_ADMIN_EMAIL
+        sync: false
+      - key: BOOTSTRAP_ADMIN_PASSWORD
+        sync: false
