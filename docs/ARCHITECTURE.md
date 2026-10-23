@@ -1,6 +1,6 @@
-# Architecture — Phase 4
+# Architecture — Phase 5
 
-React calls /api/v1 on the frontend origin. The Vite proxy forwards requests to FastAPI on 127.0.0.1:8000. FastAPI reads/writes PostgreSQL through SQLAlchemy and Psycopg. Same-origin requests carry the HttpOnly session cookie. Browser storage contains no session token.
+React calls /api/v1 on the frontend origin. During development the Vite proxy forwards requests to FastAPI on 127.0.0.1:8000. For hosting, FastAPI serves the built React index and assets on that same origin; hash routes need no catch-all that could hide API 404 errors. FastAPI reads/writes PostgreSQL through SQLAlchemy and Psycopg. Same-origin requests carry the HttpOnly session cookie. Browser storage contains no session token.
 
 ## Tables
 
@@ -25,7 +25,7 @@ Metadata updates lock the ticket row, verify the submitted version and append an
 
 ## API
 
-All routes start with /api/v1.
+The following API routes start with /api/v1. The separate `/healthz` endpoint performs no database or model work and is used for Render liveness probes.
 
 | Method | Path | Access |
 | --- | --- | --- |
@@ -70,7 +70,7 @@ Hidden and unknown ticket IDs both return 404. Authentication errors return 401,
 
 ## Deployment limits
 
-For HTTPS hosting, enable COOKIE_SECURE and configure the exact allowed origin. Add a shared edge/Redis rate limiter before public multi-worker use. Decide registration policy. Email verification, password recovery and an admin user-management screen are not implemented.
+The Render Blueprint enables HTTPS-only cookies, derives the exact allowed origin from RENDER_EXTERNAL_URL, runs one worker, and enables employee registration for evaluation. Production adds CSP, HSTS and framing protections and disables interactive API docs. Memory limits are process-local and reset on restart; add a shared limiter before scaling. Forwarded client IPs are not trusted, so authentication limits can be shared by users behind a proxy. The app is a bounded capstone demonstration. Email verification, password recovery and an admin user-management screen are not implemented.
 
 The classifier runs locally from bundled synthetic English examples. Knowledge search runs locally over administrator uploads. There is no LLM call, OCR, external embedding service or realtime push channel. No local database password or pre-provisioned user is bundled. Test helpers create temporary example accounts only when tests run.
 
@@ -92,7 +92,7 @@ The create form sends its title and description to `/ai/classify`. The response 
 
 POST `/tickets` computes its own assessment, irrespective of the browser preview, then persists the ticket and assessment in one transaction. The JSONB snapshot contains model version, ranked scores, reason, timestamp and category selected at submission. PATCH category/status/priority does not rewrite that snapshot. Migration 0002 adds a nullable field, preserving Phase 2 records.
 
-This phase is a bounded single-process development setup. The classifier has no external API cost. Public deployment still needs shared request limits and the existing authentication/registration requirements. See MODEL_CARD.md for classifier limitations.
+This deployment is a bounded single-process demo. The classifier has no external API cost. The startup command applies migrations and the first admin in one advisory-locked transaction, stops on failure, then serves the app as an unprivileged container user. It never resets an existing account. Database records persist independently of the application filesystem. See [deployment setup and operational limits](DEPLOYMENT.md). See MODEL_CARD.md for classifier limitations.
 
 ## Knowledge and conversation data flow
 

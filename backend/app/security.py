@@ -19,6 +19,8 @@ from .models import AuthSession, User, utcnow
 DB = Annotated[Session, Depends(get_db)]
 password_hasher = PasswordHash.recommended()
 dummy_hash = password_hasher.hash(secrets.token_urlsafe(32))
+# Serialize memory-intensive password operations on the 512 MB demo instance.
+password_work = threading.BoundedSemaphore(1)
 
 
 def token_hash(value: str) -> str:
@@ -60,7 +62,7 @@ def require_admin(user: CurrentUser) -> User:
 
 AdminUser = Annotated[User, Depends(require_admin)]
 
-# Local single-process limiter; deployment must add a shared edge/Redis limit.
+# Single-worker demo limiter. Restarts clear it; add a shared limiter before scaling.
 _attempts: dict[str, deque] = defaultdict(deque)
 _lock = threading.Lock()
 
