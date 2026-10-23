@@ -1,19 +1,25 @@
 """PostgreSQL accounts, sessions, tickets and an audited admin workflow."""
 from typing import Annotated
+from contextlib import asynccontextmanager
+import anyio
 from fastapi import Depends, FastAPI, Header, HTTPException, Query, Request, Response
 from fastapi.responses import JSONResponse
+from starlette.middleware.body_limit import RequestBodyLimitMiddleware
 from sqlalchemy import delete, func, or_, select, text
 from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from . import classifier, config
 from .database import get_engine
+from .knowledge_api import router as knowledge_router
+from .knowledge_limits import MAX_UPLOAD_BYTES
 from .models import AuthSession, Comment, Ticket, TicketEvent, User, utcnow
+from .web import mount_frontend
 from .schemas import (
     Category, CommentInput, CommentOutput, DashboardOutput, EventOutput, LoginInput,
     Priority, RegisterInput, Status, TicketDetail, TicketInput, TicketOutput,
     TicketPage, TicketUpdate, UserOutput, TicketText, AIResult,
 )
 from .security import (
-    AdminUser, CurrentUser, DB, dummy_hash, limit_auth, password_hasher,
+    AdminUser, CurrentUser, DB, dummy_hash, limit_auth, password_hasher, password_work,
     start_session, token_hash,
 )
 
@@ -26,18 +32,42 @@ def browser_request_guard(request: Request, x_helpdesk_request: Annotated[str | 
         if request.headers.get("sec-fetch-site") == "cross-site":
             raise HTTPException(403, "Cross-site requests are not allowed.")
 
+@asynccontextmanager
+async def lifespan(_app):
+    config.validate_runtime()
+    if config.PRODUCTION:
+        anyio.to_thread.current_default_thread_limiter().total_tokens = 4
+    yield
+
+
 app = FastAPI(
-    title="Smart IT Helpdesk API", version="0.3.0",
-    description="Accounts, tickets and an English demonstration category classifier. Write requests require "
+    title="Smart IT Helpdesk API", version="0.5.0", lifespan=lifespan,
+    docs_url=None if config.PRODUCTION else "/docs",
+    redoc_url=None if config.PRODUCTION else "/redoc",
+    openapi_url=None if config.PRODUCTION else "/openapi.json", redirect_slashes=False,
+    description="Accounts, tickets, category suggestions and document-backed conversations. Write requests require "
                 "X-Helpdesk-Request: 1. Login sets an HttpOnly session cookie.",
     dependencies=[Depends(browser_request_guard)],
 )
+app.include_router(knowledge_router)
+app.add_middleware(RequestBodyLimitMiddleware, max_body_size=MAX_UPLOAD_BYTES)
 
 @app.middleware("http")
 async def response_headers(request: Request, call_next):
     response = await call_next(request)
     response.headers["Cache-Control"] = "no-store"
     response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["Referrer-Policy"] = "same-origin"
+    response.headers["X-Frame-Options"] = "DENY"
+    if config.PRODUCTION:
+        response.headers["Strict-Transport-Security"] = "max-age=31536000"
+        response.headers["Content-Security-Policy"] = (
+            "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; "
+            "img-src 'self' data:; font-src 'self' data:; connect-src 'self'; "
+            "object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"
+        )
+        if request.url.path.startswith("/assets/") and response.status_code == 200:
+            response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
     return response
 
 @app.exception_handler(SQLAlchemyError)
@@ -46,21 +76,27 @@ async def database_error(_request: Request, _error: SQLAlchemyError):
         "detail": "Database operation failed. Check PostgreSQL and run database migrations."
     })
 
+@app.get("/healthz", include_in_schema=False)
+async def liveness():
+    # Render probes this frequently. Do not wake an idle Neon database or fit AI.
+    return {"status": "ok", "service": "smart-it-helpdesk", "version": "0.5.0"}
+
+
 @app.get("/api/v1/health", tags=["System"])
 def health(response: Response):
     ready = False
     try:
         with get_engine().connect() as connection:
-            ready = connection.execute(text("SELECT version_num FROM alembic_version")).scalar() == "0002"
+            ready = connection.execute(text("SELECT version_num FROM alembic_version")).scalar() == "0003"
     except (SQLAlchemyError, RuntimeError, ValueError):
         pass
     if not ready:
         response.status_code = 503
     return {
         "status": "ok" if ready else "degraded", "service": "smart-it-helpdesk",
-        "version": "0.3.0", "timestamp": utcnow(),
+        "version": "0.5.0", "timestamp": utcnow(),
         "components": {"api": "ready", "database": "ready" if ready else "needs_setup",
-                       "authentication": "ready", "tickets": "ready",
+                       "authentication": "ready", "tickets": "ready", "knowledge": "ready" if ready else "needs_setup",
                        "ai": "ready_demo" if classifier.get_model() else "unavailable"},
         "registration_enabled": config.ALLOW_REGISTRATION,
     }
@@ -70,8 +106,9 @@ def register(data: RegisterInput, request: Request, response: Response, db: DB):
     if not config.ALLOW_REGISTRATION:
         raise HTTPException(403, "Account registration is currently disabled.")
     limit_auth(request, "register")
-    user = User(name=data.name, email=str(data.email).lower(), role="employee",
-                password_hash=password_hasher.hash(data.password))
+    with password_work:
+        hashed = password_hasher.hash(data.password)
+    user = User(name=data.name, email=str(data.email).lower(), role="employee", password_hash=hashed)
     db.add(user)
     try:
         db.flush()
@@ -85,7 +122,8 @@ def register(data: RegisterInput, request: Request, response: Response, db: DB):
 def login(data: LoginInput, request: Request, response: Response, db: DB):
     limit_auth(request, "login")
     user = db.scalar(select(User).where(User.email == str(data.email).lower()))
-    valid = password_hasher.verify(data.password, user.password_hash if user else dummy_hash)
+    with password_work:
+        valid = password_hasher.verify(data.password, user.password_hash if user else dummy_hash)
     if not user or not valid or not user.is_active:
         raise HTTPException(401, "Email or password is incorrect.")
     start_session(db, user, response, request.cookies.get(config.COOKIE_NAME))
@@ -224,3 +262,6 @@ def model_evaluation(user: AdminUser):
     if model is None:
         raise HTTPException(503, "AI model unavailable. Check backend packages and bundled dataset, then restart.")
     return model.report
+
+
+mount_frontend(app, config.FRONTEND_DIST)

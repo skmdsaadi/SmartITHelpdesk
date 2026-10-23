@@ -1,0 +1,23 @@
+Smart IT Helpdesk — Demo IT Support Guide
+This is illustrative capstone content, written for testing. It is not an approved policy for any real organization. Replace it with guidance reviewed by your IT team before operational use.
+
+Wi-Fi connection troubleshooting
+If your laptop cannot connect to the office Wi-Fi network, check that Wi-Fi is turned on and airplane mode is off. Select the wireless network approved by your IT team and reconnect. Restart your own laptop if the connection still fails. Record the network name, location, time and error message in a support ticket. Do not reset shared routers or access points.
+
+Password reset
+For a forgotten account password, use your organization's approved self-service password reset portal. If the portal is unavailable or you cannot complete verification, contact the IT helpdesk using an approved support channel. Never share passwords, one-time verification codes or recovery codes in a support ticket or chat.
+
+Printer offline troubleshooting
+When a printer appears offline, confirm that the printer has power, paper and no visible error on its display. Check that your computer has the correct printer selected. For a shared network printer, ask whether other users can print. Include the printer name, location and displayed error in your ticket. Shared print queues and drivers should be changed only by authorized IT staff.
+
+VPN connection troubleshooting
+If the approved VPN connection fails, first confirm that your normal internet connection works. Check the exact error message in the approved VPN application and confirm that the device date and time are correct. Contact IT if account verification or connectivity still fails. Do not disable endpoint protection or share VPN credentials.
+
+Software installation requests
+To request software installation, provide the application name, business purpose, device name and any license information in a support ticket. An administrator reviews compatibility and approval before installation. Download software only through channels approved by your IT team.
+
+Email synchronization troubleshooting
+If email is not synchronizing in the desktop mail application, check the internet connection and whether current messages appear in the approved webmail service. Record any synchronization error and whether sending, receiving or both are affected. Provide the application name and affected folder in a support ticket. Do not include mailbox passwords or private message contents.
+
+Laptop startup troubleshooting
+If a laptop will not turn on, check that its approved power adapter is connected and look for charging lights. Disconnect optional external peripherals and record any display message or beep pattern. Stop using the device if it is unusually hot, damaged or has a swollen battery, and contact IT. Internal repairs should be handled by authorized service staff.

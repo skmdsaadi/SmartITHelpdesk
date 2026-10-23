@@ -36,3 +36,24 @@ export type ModelReport = {
   negative_controls: Record<'validation' | 'test', { count: number; accepted: number }>
   limitations: string[]
 }
+
+export type KnowledgeDocument = {
+  id: number; title: string; filename: string; media_type: string; byte_size: number
+  is_active: boolean; version: number; page_count: number; chunk_count: number
+  character_count: number; warnings: string[]; created_at: string
+}
+export type KnowledgeChunk = { id: number; chunk_index: number; page_number: number | null; text: string }
+export type DocumentDetail = KnowledgeDocument & { chunks: KnowledgeChunk[] }
+export type DocumentPage = { items: KnowledgeDocument[]; total: number; page: number; page_size: number }
+export type ChatThread = { id: number; title: string; created_at: string; updated_at: string }
+export type ThreadPage = { items: ChatThread[]; total: number; page: number; page_size: number }
+export type Citation = {
+  chunk_id: number; document_id: number; document_title: string; filename: string
+  page_number: number | null; chunk_index: number; text: string; score: number
+}
+export type ChatTurn = {
+  id: number; thread_id: number; request_id: string; question: string; answer: string
+  reason: 'matched' | 'no_match' | 'no_documents' | 'sources_unavailable'
+  method: string; corpus_revision: number; sources: Citation[]; unavailable_sources: number; created_at: string
+}
+export type ThreadDetail = ChatThread & { turns: ChatTurn[] }
