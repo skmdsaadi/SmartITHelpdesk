@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { FormEvent } from 'react'
 import { api, errorText, useResource } from './api'
 import { categories, priorities, statuses } from './types'
-import type { Ticket, TicketPage, User } from './types'
+import type { AIResult, Ticket, TicketPage, User } from './types'
+import { AIResultCard } from './AI'
 import { Alert, Empty, Icon, Loading, TicketTable } from './ui'
 
 export function Tickets({ user, query }: { user: User; query: string }) {
@@ -45,10 +46,37 @@ export function Tickets({ user, query }: { user: User; query: string }) {
 }
 
 export function CreateTicket() {
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [category, setCategory] = useState('')
+  const [ai, setAI] = useState<AIResult | null>(null)
+  const [aiBusy, setAIBusy] = useState(false)
+  const [aiError, setAIError] = useState('')
+  const aiRequest = useRef<AbortController | null>(null)
+  useEffect(() => () => aiRequest.current?.abort(), [])
+  function invalidateAI() {
+    aiRequest.current?.abort(); aiRequest.current = null
+    setAI(null); setAIError(''); setAIBusy(false)
+  }
+  async function suggest() {
+    aiRequest.current?.abort()
+    const controller = new AbortController()
+    aiRequest.current = controller
+    setAIBusy(true); setAIError(''); setAI(null)
+    try {
+      const result = await api<AIResult>('/ai/classify', { method: 'POST',
+        body: JSON.stringify({ title, description }), signal: controller.signal })
+      if (!controller.signal.aborted) setAI(result)
+    } catch (reason) {
+      if (!controller.signal.aborted) setAIError(errorText(reason))
+    } finally {
+      if (aiRequest.current === controller) { setAIBusy(false); aiRequest.current = null }
+    }
+  }
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
   async function submit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault(); setBusy(true); setError('')
+    event.preventDefault(); aiRequest.current?.abort(); setBusy(true); setError('')
     const form = new FormData(event.currentTarget)
     const data = Object.fromEntries(form.entries())
     try {
@@ -62,12 +90,19 @@ export function CreateTicket() {
     <div className="create-layout"><section className="panel panel-pad">
       {error && <Alert>{error}</Alert>}
       <form className="stack" onSubmit={submit}>
-        <label>Issue title<input name="title" aria-label="Issue title" aria-describedby="title-help" minLength={5} maxLength={160} placeholder="Example: Unable to connect to office Wi-Fi" required disabled={busy}/><small id="title-help">A brief, specific summary of the problem.</small></label>
+        <label>Issue title<input name="title" value={title} onChange={e => { setTitle(e.target.value); invalidateAI() }} aria-label="Issue title" aria-describedby="title-help" minLength={5} maxLength={160} placeholder="Example: Unable to connect to office Wi-Fi" required disabled={busy}/><small id="title-help">A brief, specific summary of the problem.</small></label>
         <div className="form-grid">
-          <label>Category<select aria-label="Category" name="category" required defaultValue="" disabled={busy}><option value="" disabled>Select a category</option>{categories.map(c => <option key={c}>{c}</option>)}</select></label>
+          <label>Category<select aria-label="Category" name="category" required value={category} onChange={e => setCategory(e.target.value)} disabled={busy}><option value="" disabled>Select a category</option>{categories.map(c => <option key={c}>{c}</option>)}</select></label>
           <label>Priority<select aria-label="Priority" name="priority" defaultValue="Normal" disabled={busy}>{priorities.map(c => <option key={c}>{c}</option>)}</select></label>
         </div>
-        <label>What is happening?<textarea name="description" aria-label="What is happening?" aria-describedby="description-help" rows={7} minLength={15} maxLength={10000} placeholder="Describe the issue, when it started, and what you have already tried." required disabled={busy}/><small id="description-help">At least 15 characters. Include any relevant error message.</small></label>
+        <label>What is happening?<textarea name="description" value={description} onChange={e => { setDescription(e.target.value); invalidateAI() }} aria-label="What is happening?" aria-describedby="description-help" rows={7} minLength={15} maxLength={10000} placeholder="Describe the issue, when it started, and what you have already tried." required disabled={busy}/><small id="description-help">At least 15 characters. Include any relevant error message.</small></label>
+        <div className="ai-assist-box">
+          <div className="ai-assist-heading"><div><span className="ai-label"><Icon name="sparkles" size={18}/>Need help choosing a category?</span><p>Describe the issue in English, then ask the model for a suggestion.</p></div>
+            <button type="button" className="btn secondary small" onClick={() => void suggest()} disabled={busy || aiBusy || title.trim().length < 5 || description.trim().length < 15}>{aiBusy ? 'Analyzing…' : 'Suggest category'}<Icon name="sparkles" size={16}/></button>
+          </div>
+          {aiError && <Alert>{aiError} You can still choose a category yourself.</Alert>}
+          {ai && <AIResultCard result={ai} onApply={setCategory} selectedCategory={category} disabled={busy}/>}
+        </div>
         <div className="form-actions"><a href="#tickets" className="btn secondary" aria-disabled={busy} onClick={e => { if (busy) e.preventDefault() }}>Cancel</a><button className="btn primary" disabled={busy}>{busy ? 'Submitting…' : 'Submit ticket'}<Icon name="arrow" size={17}/></button></div>
       </form>
     </section><aside className="guidance"><span className="eyebrow">A useful request includes</span><h3>Help us help you.</h3><ol><li>The device or application affected</li><li>The exact error you see</li><li>When the issue first started</li><li>How it affects your work</li></ol><div className="guidance-note"><Icon name="shield"/><p>Keep passwords, recovery codes, and other secrets out of your ticket.</p></div><h4>Choosing a priority</h4><p><strong>High:</strong> Work is blocked or several people are affected.</p><p><strong>Normal:</strong> You can continue with a workaround.</p><p><strong>Low:</strong> General questions or non-urgent requests.</p></aside></div>

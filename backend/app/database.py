@@ -18,7 +18,7 @@ def get_engine():
     url = url.set(drivername="postgresql+psycopg")
     return create_engine(
         url, pool_pre_ping=True, pool_size=5, max_overflow=5,
-        connect_args={"connect_timeout": 5}, hide_parameters=True,
+        connect_args={"connect_timeout": 10}, hide_parameters=True,
     )
 
 
@@ -26,6 +26,6 @@ def get_db():
     try:
         engine = get_engine()
     except (RuntimeError, ValueError):
-        raise HTTPException(503, "Database is not configured. Complete the local setup.") from None
+        raise HTTPException(503, "Database is not configured. Contact the helpdesk administrator.") from None
     with Session(engine, expire_on_commit=False) as db:
         yield db

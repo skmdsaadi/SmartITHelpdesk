@@ -19,6 +19,8 @@ from .models import AuthSession, User, utcnow
 DB = Annotated[Session, Depends(get_db)]
 password_hasher = PasswordHash.recommended()
 dummy_hash = password_hasher.hash(secrets.token_urlsafe(32))
+# Serialize memory-intensive password operations on the 512 MB demo instance.
+password_work = threading.BoundedSemaphore(1)
 
 
 def token_hash(value: str) -> str:
@@ -54,13 +56,13 @@ CurrentUser = Annotated[User, Depends(current_user)]
 
 def require_admin(user: CurrentUser) -> User:
     if user.role != "admin":
-        raise HTTPException(403, "Only an administrator can change ticket details.")
+        raise HTTPException(403, "This action requires an administrator account.")
     return user
 
 
 AdminUser = Annotated[User, Depends(require_admin)]
 
-# Local single-process limiter; deployment must add a shared edge/Redis limit.
+# Single-worker demo limiter. Restarts clear it; add a shared limiter before scaling.
 _attempts: dict[str, deque] = defaultdict(deque)
 _lock = threading.Lock()
 
@@ -79,5 +81,21 @@ def limit_auth(request: Request, action: str):
             values.popleft()
         if len(values) >= limit:
             raise HTTPException(429, "Too many attempts. Please wait before trying again.",
+                                headers={"Retry-After": str(seconds)})
+        values.append(now)
+
+
+def limit_user(user_id: int, action: str, limit: int, seconds: int = 60):
+    """Bound expensive authenticated operations in this process, without trusting client IPs."""
+    now = time.monotonic()
+    key = f"user:{user_id}:{action}"
+    with _lock:
+        for old in [k for k, values in _attempts.items() if not values or values[-1] < now - 1800]:
+            del _attempts[old]
+        values = _attempts[key]
+        while values and values[0] <= now - seconds:
+            values.popleft()
+        if len(values) >= limit:
+            raise HTTPException(429, "Too many requests. Please wait a minute and try again.",
                                 headers={"Retry-After": str(seconds)})
         values.append(now)

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { AIResultCard } from './AI'
 import type { FormEvent } from 'react'
 import { api, errorText, useResource } from './api'
 import { categories, priorities, statuses } from './types'
@@ -63,6 +64,9 @@ export default function TicketDetail({ id, user }: { id: number; user: User }) {
       <div className="page-heading detail-heading"><div><span className="eyebrow">{ticketCode(ticket.id)}</span><h1>{ticket.title}</h1><div className="detail-tags"><Badge value={ticket.status}/><Badge value={ticket.priority}/><span>{ticket.category}</span></div></div><button className="btn secondary" onClick={refresh}><Icon name="refresh" size={17}/>Refresh</button></div>
       <div className="detail-layout"><div className="detail-main">
         <section className="panel panel-pad"><h2>Issue description</h2><p className="prose-text">{ticket.description}</p></section>
+        <section className="panel panel-pad"><h2>AI assessment at submission</h2>
+          {ticket.ai_assessment ? <><p className="ai-copy">Category chosen at submission: <strong>{ticket.ai_assessment.selected_category}</strong>. This snapshot stays as recorded, even if the IT team changes the category later.</p><AIResultCard result={ticket.ai_assessment}/></> : <p className="ai-copy">No AI assessment was saved for this ticket. Category suggestions are available when you create a ticket.</p>}
+        </section>
         <section className="panel"><div className="panel-heading"><div><h2>Conversation & activity</h2><p>Every update, in one place</p></div><span className="count-pill">{ticket.comments.length} replies</span></div>
           <div className="activity-list">{activity.map(item => item.isComment ?
             <article className="comment" key={item.key}><div className={'avatar small-avatar ' + (item.author.role === 'admin' ? 'admin-avatar' : '')}>{item.author.name.slice(0, 1).toUpperCase()}</div><div className="comment-content"><div className="comment-meta"><strong>{item.author.name}</strong>{item.author.role === 'admin' && <span className="role-label">IT team</span>}<time dateTime={item.created_at}>{dateTime(item.created_at)}</time></div><p>{item.text}</p></div></article> :

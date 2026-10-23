@@ -1,0 +1,30 @@
+{
+  "validation": [
+    "I need to book a train ticket for my holiday next month.",
+    "Please approve my annual leave application for next week.",
+    "The cafeteria lunch menu needs more vegetarian meals.",
+    "Our office air conditioner is leaking water onto the floor.",
+    "The salary payment has not arrived in my bank account.",
+    "What is the weather forecast for tomorrow morning?",
+    "Please arrange transport for the customer visit on Monday.",
+    "We need to purchase paint for the outside wall.",
+    "The meeting room chairs are broken and uncomfortable.",
+    "Please recommend a good hotel for my family trip.",
+    "Everything is broken and nothing is working properly.",
+    "I have a problem and need help as soon as possible."
+  ],
+  "test": [
+    "Please reserve a cinema ticket for the evening movie.",
+    "I want to apply for reimbursement of my lunch expenses.",
+    "The drinking water dispenser is empty on this floor.",
+    "The elevator in our office building is not working.",
+    "Please update the delivery date for the shipment of fabric.",
+    "How many days are left until the school holidays?",
+    "We need more parking spaces for office staff.",
+    "Please explain how to bake a chocolate cake.",
+    "The customer wants a discount on their paint order.",
+    "Who will attend the sales meeting next Thursday?",
+    "There is some kind of issue that needs urgent attention.",
+    "It does not work and I cannot do anything today."
+  ]
+}

@@ -1,8 +1,14 @@
-Smart IT Helpdesk — Phase 2 / 0.2.0
+Smart IT Helpdesk — Phase 5 / 0.5.0
 
-Start with README.md and docs/WINDOWS_SETUP.md.
-This release includes PostgreSQL accounts, login/logout, dashboard and tickets.
-AI, knowledge upload, GitHub publication and deployment are later phases.
+Existing Phase 2 or 3 installation: follow docs/PHASE4_SETUP.md.
+First installation: README.md and docs/WINDOWS_SETUP.md.
+
+Working: PostgreSQL accounts/tickets, English AI category suggestions,
+admin PDF/TXT knowledge upload and source-backed private conversations.
+Model evidence: docs/MODEL_CARD.md and docs/evaluation/.
+Knowledge method: docs/KNOWLEDGE_METHOD.md (extractive search, no LLM or API key).
+Free hosting configuration: docs/DEPLOYMENT.md (branch phase5-deployment).
+Hosting account setup, verified public URL, independent evaluation and final report remain pending.
 
 Backend:
   Set-Location "D:\Projects\SmartITHelpdesk\backend"

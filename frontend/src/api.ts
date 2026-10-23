@@ -5,9 +5,9 @@ export class ApiError extends Error {
   constructor(message: string, status: number) { super(message); this.status = status }
 }
 
-export async function api<T>(path: string, options: RequestInit = {}): Promise<T> {
+export async function api<T>(path: string, options: RequestInit = {}, timeoutMs = 15000): Promise<T> {
   const controller = new AbortController()
-  const timer = window.setTimeout(() => controller.abort(), 15000)
+  const timer = window.setTimeout(() => controller.abort(), timeoutMs)
   const signal = options.signal ? AbortSignal.any([options.signal, controller.signal]) : controller.signal
   try {
     const response = await fetch('/api/v1' + path, {
@@ -16,7 +16,8 @@ export async function api<T>(path: string, options: RequestInit = {}): Promise<T
     })
     const data = response.status === 204 ? null : await response.json().catch(() => null)
     if (!response.ok) {
-      let message = typeof data?.detail === 'string' ? data.detail : 'Request failed. Please try again.'
+      let message = typeof data?.detail === 'string' ? data.detail : response.status === 413
+        ? 'The upload exceeds the 2 MiB limit. Choose a smaller file.' : 'Request failed. Please try again.'
       if (Array.isArray(data?.detail)) {
         message = data.detail.map((item: { loc?: string[]; msg?: string }) =>
           (item.loc?.slice(1).join('.') || 'Input') + ': ' + (item.msg || 'Invalid value')).join(' ')

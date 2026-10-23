@@ -18,3 +18,5 @@ Thumbs.db
 .coverage
 test-results/
 playwright-report/
+# Regenerate locally with python -m app.train_classifier; checked-in evidence is in docs/evaluation.
+backend/evaluation/

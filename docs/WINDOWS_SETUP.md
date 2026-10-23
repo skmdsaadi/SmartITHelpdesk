@@ -1,3 +1,5 @@
+> **Phase 4:** If Phase 2 or 3 already works, follow [PHASE4_SETUP.md](PHASE4_SETUP.md). For a first installation, use the database/setup steps below with the current repository checkout; the older ZIP-update step is only for the Phase 1-to-2 archive workflow.
+
 # Phase 2 setup — Windows PowerShell
 
 ## 1. Stop the running servers
